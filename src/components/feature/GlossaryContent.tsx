@@ -16,7 +16,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { glossaryTerms } from "@/lib/glossaryData";
+import { useLocalizedGlossary } from "@/hooks/useLocalizedGlossary";
 import type { GlossaryTerm } from "@/types/glossary";
 
 function filterAndSortTerms(terms: GlossaryTerm[], query: string): GlossaryTerm[] {
@@ -54,12 +54,13 @@ export function GlossaryContent(): React.ReactElement {
   const locale = params.locale as string;
   const t = useTranslations("glossary");
   const tCommon = useTranslations("common");
+  const glossaryTerms = useLocalizedGlossary();
 
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredTerms = useMemo(
     () => filterAndSortTerms(glossaryTerms, searchQuery),
-    [searchQuery]
+    [glossaryTerms, searchQuery]
   );
 
   function handleClearSearch(): void {

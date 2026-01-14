@@ -1,4 +1,108 @@
 {
+  "glossaryTerms": {
+    "chametz": {
+      "term": "Chametz (חמץ)",
+      "definition": "TODO: Translate - Food made from one of the five grains (wheat, barley, oats, spelt, rye) that comes in contact with water and sits for more than 18 minutes, beginning to ferment and becoming chametz. Chametz is forbidden to eat or benefit from on Passover, and there is a commandment to remove it before the holiday.",
+      "examples": ["Bread", "Regular cakes", "Pasta", "Beer"],
+      "sources": ["Exodus 12:15", "Pesachim 5a", "Shulchan Aruch Orach Chaim 453"]
+    },
+    "seor": {
+      "term": "Se'or (שאור)",
+      "definition": "TODO: Translate",
+      "examples": ["Natural yeast", "Homemade sourdough starter"],
+      "sources": ["Exodus 12:19", "Pesachim 48a", "Shulchan Aruch Orach Chaim 453:1"]
+    },
+    "hagala": {
+      "term": "Hagala (הגעלה)",
+      "definition": "TODO: Translate",
+      "examples": ["Kashering a pot", "Kashering a metal spoon"],
+      "sources": ["Shulchan Aruch Orach Chaim 451:5", "Mishna Berura 451:31", "Chazon Ovadia Pesach pp. 151-154"]
+    },
+    "libun-kal": {
+      "term": "Libun Kal (ליבון קל)",
+      "definition": "TODO: Translate",
+      "examples": ["Frying pan", "Baking tray"],
+      "sources": ["Mishna Berura 451:28", "Chazon Ovadia Pesach p. 152"]
+    },
+    "libun-chamur": {
+      "term": "Libun Chamur (ליבון חמור)",
+      "definition": "TODO: Translate",
+      "examples": ["Skewers", "Grill grate"],
+      "sources": ["Shulchan Aruch Orach Chaim 451:4", "Mishna Berura 451:25"]
+    },
+    "iruy": {
+      "term": "Iruy (עירוי)",
+      "definition": "TODO: Translate",
+      "examples": ["Countertop", "Sink", "Table"],
+      "sources": ["Chazon Ovadia Pesach pp. 151-154", "Mishna Berura 451:23"]
+    },
+    "iruy-kli-rishon": {
+      "term": "Iruy from Kli Rishon (עירוי מכלי ראשון)",
+      "definition": "TODO: Translate",
+      "examples": ["Pouring from pot onto countertop", "Pouring from kettle into sink"],
+      "sources": ["Chazon Ovadia Pesach p. 151", "Pesachim 76a"]
+    },
+    "kli-rishon": {
+      "term": "Kli Rishon (כלי ראשון)",
+      "definition": "TODO: Translate",
+      "examples": ["Boiling pot", "Bubbling kettle"],
+      "sources": ["Pesachim 30b", "Shulchan Aruch 451"]
+    },
+    "kli-sheni": {
+      "term": "Kli Sheni (כלי שני)",
+      "definition": "TODO: Translate",
+      "examples": ["Soup bowl", "Plate with transferred food"],
+      "sources": ["Pesachim 76a", "Mishna Berura 451:14"]
+    },
+    "ben-yomo": {
+      "term": "Ben Yomo (בן יומו)",
+      "definition": "TODO: Translate",
+      "examples": ["Pot used for pasta yesterday", "Pan used to fry bread"],
+      "sources": ["Shulchan Aruch Yoreh De'ah 121", "Mishna Berura 451:1"]
+    },
+    "biur-chametz": {
+      "term": "Biur Chametz (ביעור חמץ)",
+      "definition": "TODO: Translate",
+      "examples": ["Burning chametz on the morning of the 14th", "Scattering chametz to the sea"],
+      "sources": ["Exodus 12:15", "Shulchan Aruch Orach Chaim 434:2-3", "Mishna Berura 434:12"]
+    },
+    "matza-shmura": {
+      "term": "Matza Shmura (מצה שמורה)",
+      "definition": "TODO: Translate",
+      "examples": ["Hand-made shmura matzot", "Shmura matza from field to baking"],
+      "sources": ["Shulchan Aruch Orach Chaim 454:4", "Mishna Berura 454:23", "Chazon Ovadia Pesach pp. 75-90"]
+    },
+    "matza-ashira": {
+      "term": "Matza Ashira (מצה עשירה)",
+      "definition": "TODO: Translate",
+      "examples": ["Papushado", "Wine cookies for Passover", "Egg matzot"],
+      "sources": ["Shulchan Aruch Orach Chaim 462:1", "Mishna Berura 462:3-5", "Chazon Ovadia Pesach pp. 78-82"]
+    },
+    "kitniyot": {
+      "term": "Kitniyot (קטניות)",
+      "definition": "TODO: Translate",
+      "examples": ["Rice", "Corn", "Chickpeas", "Lentils", "Soy"],
+      "sources": ["Responsa Maharam of Rothenburg 515", "Rema Orach Chaim 461:1", "Mishna Berura 461:6", "Chazon Ovadia Pesach pp. 197-207"]
+    },
+    "even-melubenet": {
+      "term": "Even Melubenet (אבן מלובנת)",
+      "definition": "TODO: Translate",
+      "examples": ["Heating countertop with hot stone", "Placing hot stone in sink"],
+      "sources": ["Mishna Berura 451:23", "Chazon Ovadia Pesach pp. 154-156"]
+    },
+    "kebolao-kach-polto": {
+      "term": "Kebol'o Kach Polto (כבולעו כך פולטו)",
+      "definition": "TODO: Translate",
+      "examples": ["Pan used dry needs libun", "Pot used for cooking needs hagala"],
+      "sources": ["Pesachim 30b", "Shulchan Aruch 451:5", "Mishna Berura 451:28"]
+    },
+    "taarovet-chametz": {
+      "term": "Taarovet Chametz (תערובת חמץ)",
+      "definition": "TODO: Translate",
+      "examples": ["Biscuits", "Sauces with wheat starch", "Chocolates with flour"],
+      "sources": ["Pesachim 43a", "Shulchan Aruch Orach Chaim 448:2", "Mishna Berura 448:8", "Chazon Ovadia Pesach pp. 61-69"]
+    }
+  },
   "metadata": {
     "title": "Kashering Utensils for Passover",
     "titleTemplate": "%s | Kashering Utensils for Passover",

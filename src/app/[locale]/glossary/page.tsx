@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { setRequestLocale, getTranslations } from "next-intl/server";
+import { setRequestLocale, getTranslations, getMessages } from "next-intl/server";
 import { AppShell } from "@/components/AppShell";
 import { GlossaryContent } from "@/components/feature/GlossaryContent";
-import { glossaryTerms } from "@/lib/glossaryData";
+import { GLOSSARY_TERM_IDS } from "@/lib/glossaryData";
 import { routing, Locale } from "@/i18n/routing";
+import type { GlossaryTermContent } from "@/types/glossary";
 
 const BASE_URL = "https://hagim.online";
 
@@ -15,6 +16,10 @@ const LOCALE_TO_OG_LOCALE: Record<Locale, string> = {
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+interface Messages {
+  glossaryTerms: Record<string, GlossaryTermContent>;
 }
 
 export async function generateMetadata({
@@ -49,23 +54,30 @@ export async function generateMetadata({
   };
 }
 
-// JSON-LD FAQ Schema for glossary terms
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: glossaryTerms.map((term) => ({
-    "@type": "Question",
-    name: term.term,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: term.definition,
-    },
-  })),
-};
-
 export default async function GlossaryPage({ params }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   setRequestLocale(locale);
+
+  // Get localized messages for JSON-LD
+  const messages = (await getMessages()) as unknown as Messages;
+  const glossaryTermsMessages = messages.glossaryTerms || {};
+
+  // Build localized JSON-LD FAQ Schema
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: GLOSSARY_TERM_IDS.map((termId) => {
+      const content = glossaryTermsMessages[termId];
+      return {
+        "@type": "Question",
+        name: content?.term || termId,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: content?.definition || "",
+        },
+      };
+    }),
+  };
 
   return (
     <>
