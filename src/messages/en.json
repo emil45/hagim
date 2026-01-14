@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "Kashering Utensils for Passover",
+    "titleTemplate": "%s | Kashering Utensils for Passover",
+    "description": "A clear and precise halachic guide to kashering utensils for Passover: hagala, libun, iruy, chametz and se'or - including sources from the Torah, Gemara and Poskim. Suitable for all levels.",
+    "keywords": "kashering utensils, Passover, Pesach, chametz, hagala, libun, se'or, iruy, Passover laws, kitchen kashering"
+  },
+  "nav": {
+    "home": "Home",
+    "glossary": "Glossary",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Kashering Utensils for Passover",
+    "subtitle": "Search for a utensil and discover how to kasher it",
+    "searchPlaceholder": "Search for a utensil (e.g., pot, pan, cup)",
+    "noResults": "No results found for",
+    "tryAnother": "Try searching for another term",
+    "showMore": "Show more info",
+    "hideMore": "Hide info",
+    "sources": "Sources:",
+    "stringencies": "Stringencies:"
+  },
+  "glossary": {
+    "title": "Passover Glossary",
+    "subtitle": "All the important terms for understanding kashering utensils for Passover",
+    "searchPlaceholder": "Search for a term...",
+    "examples": "Examples:",
+    "relatedTerms": "Related Terms:",
+    "sources": "Sources:",
+    "backToHome": "Back to Home",
+    "noResults": "No terms found for",
+    "tryAnother": "Try searching for another term"
+  },
+  "sidebar": {
+    "pages": "Pages",
+    "tribes": "Traditions",
+    "comingSoon": "Coming Soon"
+  },
+  "tribes": {
+    "east": "Sephardic",
+    "ashkenaz": "Ashkenazi",
+    "chabad": "Chabad",
+    "teiman": "Yemenite"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "dialogDescription": "Who can discern errors? Cleanse me of hidden faults",
+    "description": "We'd love to hear from you! For questions, comments and suggestions:",
+    "personalMessage": "I'd be happy to hear from you about any suggestions for improvement, bug reports, etc. - Emmanuel.",
+    "email": "Email",
+    "copied": "Copied!",
+    "copyEmail": "Copy Email"
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "toggle": "Toggle Theme"
+  },
+  "footer": {
+    "blessing": "בשם השם נעשה ונצליח",
+    "copyright": "All Rights Reserved",
+    "disclaimer": "The information on this site is for general education only. For halachic questions, please consult a Rabbi."
+  },
+  "settings": {
+    "title": "Settings",
+    "close": "Close",
+    "additionalSettings": "Additional Settings"
+  },
+  "common": {
+    "close": "Close",
+    "scrollToTop": "Scroll to Top",
+    "loading": "Loading...",
+    "language": "Language",
+    "clearSearch": "Clear search"
+  }
+}

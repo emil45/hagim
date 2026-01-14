@@ -1,31 +1,21 @@
 "use client";
 
-import type React from "react";
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent, KeyboardEvent } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, XCircle } from "lucide-react";
-import type { ToolData } from "@/types/tool";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ToolCard } from "@/components/ToolCard";
+import { ToolCard } from "@/components/feature/ToolCard";
+import { useAppContext } from "@/components/AppShell";
 
-interface HomePageProps {
-  searchQuery: string;
-  onSearch: (query: string) => void;
-  tools: ToolData[];
-  searchPerformed: boolean;
-  openContactDialog: () => void;
-}
+export function HomeContent(): React.ReactElement {
+  const { searchQuery, setSearchQuery, filteredTools, searchPerformed } =
+    useAppContext();
+  const t = useTranslations("home");
+  const tCommon = useTranslations("common");
 
-export function HomePage({
-  searchQuery,
-  onSearch,
-  tools,
-  searchPerformed,
-}: HomePageProps) {
   const [localSearch, setLocalSearch] = useState(searchQuery);
-  const [isTyping, setIsTyping] = useState(false);
   const [hasSearchedOnce, setHasSearchedOnce] = useState(searchPerformed);
 
   useEffect(() => {
@@ -38,32 +28,25 @@ export function HomePage({
     }
   }, [searchPerformed, hasSearchedOnce]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  function handleInputChange(e: ChangeEvent<HTMLInputElement>): void {
     const value = e.target.value;
     setLocalSearch(value);
-    setIsTyping(value.length > 0);
-    onSearch(value); // Trigger search on every keystroke
-  };
+    setSearchQuery(value);
+  }
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  function handleKeyDown(e: KeyboardEvent<HTMLInputElement>): void {
     if (e.key === "Enter") {
       (e.target as HTMLInputElement).blur();
     }
-  };
+  }
 
-  const handleInputFocus = () => {
-    setIsTyping(localSearch.length > 0);
-  };
-
-  const clearSearch = () => {
+  function clearSearch(): void {
     setLocalSearch("");
-    setIsTyping(false);
-    onSearch("");
-  };
+    setSearchQuery("");
+  }
 
-  // Determine if search should be centered or at the top
-  const shouldCenter =
-    !hasSearchedOnce && !searchPerformed && !isTyping && !localSearch;
+  const isSearchActive = localSearch.length > 0;
+  const shouldCenter = !hasSearchedOnce && !searchPerformed && !isSearchActive;
 
   return (
     <div className="absolute inset-0 w-full">
@@ -81,7 +64,7 @@ export function HomePage({
             }`}
             initial={false}
             animate={{
-              y: searchPerformed || isTyping ? -20 : 0,
+              y: searchPerformed || isSearchActive ? -20 : 0,
               scale: 1,
             }}
             transition={{ duration: 0.3 }}
@@ -95,23 +78,22 @@ export function HomePage({
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0 }}
                 >
-                  <h1 className="text-3xl font-bold mb-2">הכשרת כלים לפסח</h1>
+                  <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
                   <p className="text-muted-foreground">
-                    מצא את דרך ההכשרה המתאימה לכל כלי
+                    {t("subtitle")}
                   </p>
                 </motion.div>
               )}
             </AnimatePresence>
 
             <div className="relative w-full max-w-2xl mx-auto">
-              <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" />
+              <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none rtl:right-4 rtl:left-auto ltr:left-4 ltr:right-auto" />
               <Input
                 type="text"
-                placeholder="חפש כלי (לדוגמה: סיר, מחבת, כוס)"
-                className="h-14 pr-12 pl-12 text-lg rounded-2xl shadow-md"
+                placeholder={t("searchPlaceholder")}
+                className="h-14 pr-12 pl-12 text-lg rounded-2xl shadow-md rtl:pr-12 rtl:pl-12 ltr:pl-12 ltr:pr-12"
                 value={localSearch}
                 onChange={handleInputChange}
-                onFocus={handleInputFocus}
                 onKeyDown={handleKeyDown}
                 autoComplete="off"
                 autoCorrect="off"
@@ -122,26 +104,26 @@ export function HomePage({
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="absolute left-3 top-1/2 transform -translate-y-1/2 h-8 w-8 text-muted-foreground hover:text-foreground"
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 h-8 w-8 text-muted-foreground hover:text-foreground rtl:left-3 rtl:right-auto ltr:right-3 ltr:left-auto"
                   onClick={clearSearch}
                 >
                   <XCircle className="h-5 w-5" />
-                  <span className="sr-only">נקה חיפוש</span>
+                  <span className="sr-only">{tCommon("close")}</span>
                 </Button>
               )}
             </div>
           </motion.div>
 
           <AnimatePresence>
-            {(searchPerformed || isTyping) && localSearch.trim() !== "" && (
+            {(searchPerformed || isSearchActive) && localSearch.trim() !== "" && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
                 className="space-y-4 w-full"
               >
-                {tools.length > 0 ? (
-                  tools.map((tool, index) => (
+                {filteredTools.length > 0 ? (
+                  filteredTools.map((tool, index) => (
                     <motion.div
                       key={tool.tool + index}
                       initial={{ opacity: 0, y: 20 }}
@@ -154,10 +136,7 @@ export function HomePage({
                 ) : (
                   <div className="text-center p-8 bg-muted rounded-lg">
                     <p className="text-xl">
-                      לא נמצאו תוצאות עבור &quot;{localSearch}&quot;
-                    </p>
-                    <p className="text-muted-foreground mt-2">
-                      נסה לחפש מונח אחר
+                      {t("noResults")} &quot;{localSearch}&quot;
                     </p>
                   </div>
                 )}

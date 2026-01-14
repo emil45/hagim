@@ -1,14 +1,19 @@
-import { ToolData } from "@/types/tool";
+import type { ToolData } from "@/types/tool";
 import { yemenData } from "@/lib/tribeYemenData";
 import { chabadData } from "@/lib/tribeChabadData";
 import { ashkenazData } from "@/lib/tribeAshkenazData";
 import { eastData } from "@/lib/tribeEastData";
 
-export const tribes = [
-  { id: "east", name: "עדות המזרח", disabled: false },
-  { id: "ashkenaz", name: "אשכנז", disabled: true },
-  { id: "chabad", name: "חב״ד", disabled: true },
-  { id: "teiman", name: "תימן", disabled: true },
+export interface Tribe {
+  id: string;
+  disabled: boolean;
+}
+
+export const tribes: Tribe[] = [
+  { id: "east", disabled: false },
+  { id: "ashkenaz", disabled: true },
+  { id: "chabad", disabled: true },
+  { id: "teiman", disabled: true },
 ];
 
 export const tribesData: Record<string, ToolData[]> = {

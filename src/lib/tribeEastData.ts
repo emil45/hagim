@@ -1,4 +1,6 @@
-export const eastData = [
+import { ToolData } from "@/types/tool";
+
+export const eastData: ToolData[] = [
   {
     tool: "שיש",
     aliases: ["מטבח"],
@@ -170,7 +172,7 @@ export const eastData = [
     aliases: ["מטבח"],
     process: "מנקים היטב ומוודאים שאין שום שאריות אוכל",
     sources: ["פניני הלכה יא, ט"],
-    chumrot: [""],
+    chumrot: [],
     notes:
       "במקומות שקשה או לא ניתן לנקות, ניתן לשפוך מי סבון או חומר שיפגום את האוכל וזה מספיק",
     emoji: "🧊",
@@ -180,7 +182,7 @@ export const eastData = [
     aliases: ["ארון", "מטבח"],
     process: "מנקים היטב ומוודאים שאין שום שאריות אוכל",
     sources: ["פניני הלכה יא, ט"],
-    chumrot: [""],
+    chumrot: [],
     notes:
       "במקומות שקשה או לא ניתן לנקות, ניתן לשפוך מי סבון או חומר שיפגום את האוכל וזה מספיק",
     emoji: "🧊",
@@ -190,7 +192,7 @@ export const eastData = [
     aliases: ["קרמיקה", "חימר", "פורצלאן", "חרסינה", "כלי חרס", "מטבח"],
     process: "במידה ונגעו במאכל חם, לא ניתן להכשיר כלל ויש להצניע עד לאחר הפסח",
     sources: ["חזון עובדיה פסח עמ' קמט", "פניני הלכה יא, יג"],
-    chumrot: [""],
+    chumrot: [],
     notes:
       "אם השתמשו בהם אך ורק בצונן, אפשר להכשיר על ידי שטיפה. אך אם היו בהם נוזל חמץ (למשל בירה) במשך עשרים וארבע שעות אפשר להכשיר על ידי השריה של שלוש יממות (ראו מילון מונחים)",
     emoji: "🏺",

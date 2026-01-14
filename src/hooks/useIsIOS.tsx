@@ -1,19 +1,22 @@
-import { useState, useEffect } from "react";
+"use client";
 
-export function useIsIOS() {
-  const [isIOS, setIsIOS] = useState(false);
+import { useSyncExternalStore, useCallback } from "react";
 
-  useEffect(() => {
-    // Check for iOS - fixed TypeScript error
-    const checkIOS = () => {
-      const iOS =
-        /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-        !(window as any).MSStream;
-      setIsIOS(iOS);
-    };
+function getServerSnapshot(): boolean {
+  return false;
+}
 
-    checkIOS();
+function subscribe(): () => void {
+  return () => {};
+}
+
+export function useIsIOS(): boolean {
+  const getSnapshot = useCallback((): boolean => {
+    if (typeof window === "undefined") return false;
+    const isAppleDevice = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const hasNoMSStream = !(window as Window & { MSStream?: unknown }).MSStream;
+    return isAppleDevice && hasNoMSStream;
   }, []);
 
-  return isIOS;
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }

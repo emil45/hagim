@@ -1,19 +1,27 @@
+"use client";
+
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, AlertCircle, BookOpen, Fence } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ToolData } from "@/types/tool";
+import type { ToolData } from "@/types/tool";
 import { useIsIOS } from "@/hooks/useIsIOS";
 
 interface ToolCardProps {
   tool: ToolData;
 }
 
-export function ToolCard({ tool }: ToolCardProps) {
+export function ToolCard({ tool }: ToolCardProps): React.ReactElement {
   const isIOS = useIsIOS();
   const [isExpanded, setIsExpanded] = useState(false);
+  const t = useTranslations("home");
+
+  function toggleExpanded(): void {
+    setIsExpanded((prev) => !prev);
+  }
 
   return (
     <motion.div
@@ -29,7 +37,7 @@ export function ToolCard({ tool }: ToolCardProps) {
           <div className="relative overflow-hidden">
             <div className="px-5 pb-3 flex items-start gap-4">
               <div
-                className={`flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary text-2xl 
+                className={`flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary text-2xl
                   ${isIOS ? "pt-2" : ""}`}
               >
                 {tool.emoji}
@@ -69,10 +77,10 @@ export function ToolCard({ tool }: ToolCardProps) {
           <Button
             variant="ghost"
             className="flex items-center justify-center gap-1 w-full rounded-none h-10 text-muted-foreground hover:text-foreground"
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={toggleExpanded}
           >
             <span className="text-sm">
-              {isExpanded ? "הסתר מידע נוסף" : "הצג מידע נוסף"}
+              {isExpanded ? t("hideMore") : t("showMore")}
             </span>
             <motion.div
               animate={{ rotate: isExpanded ? 180 : 0 }}
@@ -96,13 +104,13 @@ export function ToolCard({ tool }: ToolCardProps) {
                     <div>
                       <div className="flex items-center gap-2 mb-2">
                         <BookOpen className="h-4 w-4 text-primary" />
-                        <h4 className="font-medium text-sm">מקורות:</h4>
+                        <h4 className="font-medium text-sm">{t("sources")}</h4>
                       </div>
                       <ul className="space-y-1.5 text-muted-foreground">
                         {tool.sources.map((source, index) => (
                           <li
                             key={index}
-                            className="text-sm relative pr-4 before:absolute before:content-['•'] before:right-0 before:text-primary"
+                            className="text-sm relative pr-4 before:absolute before:content-['•'] before:right-0 before:text-primary rtl:pr-4 rtl:before:right-0 ltr:pl-4 ltr:pr-0 ltr:before:left-0 ltr:before:right-auto"
                           >
                             {source}
                           </li>
@@ -115,13 +123,13 @@ export function ToolCard({ tool }: ToolCardProps) {
                     <div>
                       <div className="flex items-center gap-2 mb-2">
                         <Fence className="h-4 w-4 text-primary" />
-                        <h4 className="font-medium text-sm">חומרות:</h4>
+                        <h4 className="font-medium text-sm">{t("stringencies")}</h4>
                       </div>
                       <ul className="space-y-1.5 text-muted-foreground">
                         {tool.chumrot.map((chumra, index) => (
                           <li
                             key={index}
-                            className="text-sm relative pr-4 before:absolute before:content-['•'] before:right-0 before:text-primary/70"
+                            className="text-sm relative pr-4 before:absolute before:content-['•'] before:right-0 before:text-primary/70 rtl:pr-4 rtl:before:right-0 ltr:pl-4 ltr:pr-0 ltr:before:left-0 ltr:before:right-auto"
                           >
                             {chumra}
                           </li>

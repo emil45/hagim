@@ -1,5 +1,8 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+"use client";
+
+import { useState, useMemo, KeyboardEvent } from "react";
+import { useRouter, useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { ArrowRight, Search, BookOpen, XCircle, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,102 +17,85 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { glossaryTerms } from "@/lib/glossaryData";
-import { GlossaryTerm } from "@/types/glossary";
+import type { GlossaryTerm } from "@/types/glossary";
 
-export default function GlossaryPage() {
-  const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filteredTerms, setFilteredTerms] = useState(glossaryTerms);
+function filterAndSortTerms(terms: GlossaryTerm[], query: string): GlossaryTerm[] {
+  if (query.trim() === "") {
+    return terms;
+  }
 
-  useEffect(() => {
-    if (searchQuery.trim() === "") {
-      setFilteredTerms(glossaryTerms);
-      return;
+  const normalizedQuery = query.trim().toLowerCase();
+  const exactMatches: GlossaryTerm[] = [];
+  const partialMatches: GlossaryTerm[] = [];
+  const otherMatches: GlossaryTerm[] = [];
+
+  for (const term of terms) {
+    const termLower = term.term.toLowerCase();
+
+    if (termLower === normalizedQuery) {
+      exactMatches.push(term);
+    } else if (termLower.includes(normalizedQuery)) {
+      partialMatches.push(term);
+    } else if (
+      term.definition.toLowerCase().includes(normalizedQuery) ||
+      term.examples?.some((ex) => ex.toLowerCase().includes(normalizedQuery)) ||
+      term.relatedTerms?.some((rel) => rel.toLowerCase().includes(normalizedQuery))
+    ) {
+      otherMatches.push(term);
     }
+  }
 
-    const query = searchQuery.trim().toLowerCase();
+  return [...exactMatches, ...partialMatches, ...otherMatches];
+}
 
-    // Group terms by match type
-    const exactMatches: GlossaryTerm[] = [];
-    const partialMatches: GlossaryTerm[] = [];
-    const otherMatches: GlossaryTerm[] = [];
+export function GlossaryContent(): React.ReactElement {
+  const router = useRouter();
+  const params = useParams();
+  const locale = params.locale as string;
+  const t = useTranslations("glossary");
+  const tCommon = useTranslations("common");
 
-    glossaryTerms.forEach((term) => {
-      const termLower = term.term.toLowerCase();
+  const [searchQuery, setSearchQuery] = useState("");
 
-      if (termLower === query) {
-        exactMatches.push(term);
-      } else if (termLower.includes(query)) {
-        partialMatches.push(term);
-      } else if (
-        term.definition.toLowerCase().includes(query) ||
-        term.examples?.some((ex) => ex.toLowerCase().includes(query)) ||
-        term.relatedTerms?.some((rel) => rel.toLowerCase().includes(query))
-      ) {
-        otherMatches.push(term);
-      }
-    });
+  const filteredTerms = useMemo(
+    () => filterAndSortTerms(glossaryTerms, searchQuery),
+    [searchQuery]
+  );
 
-    // Combine groups in priority order
-    setFilteredTerms([...exactMatches, ...partialMatches, ...otherMatches]);
-  }, [searchQuery, glossaryTerms]);
-
-  const handleClearSearch = () => {
+  function handleClearSearch(): void {
     setSearchQuery("");
-  };
+  }
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  function handleKeyDown(e: KeyboardEvent<HTMLInputElement>): void {
     if (e.key === "Enter") {
       (e.target as HTMLInputElement).blur();
     }
-  };
+  }
 
   return (
     <div className="min-h-screen bg-background pt-16">
-      <title>מילון מונחים להכשרת כלים לפסח | הכשרת כלים לפסח</title>
-      <meta
-        name="description"
-        content="מילון מונחים מקיף להכשרת כלים לפסח. למדו על מושגים כמו הגעלה, ליבון קל, ליבון חמור, עירוי ועוד."
-      />
-      <meta
-        name="keywords"
-        content="הגעלה, ליבון קל, ליבון חמור, עירוי, חמץ, הכשרת כלים, פסח, מילון מונחים"
-      />
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: glossaryTerms.map((term) => ({
-            "@type": "Question",
-            name: term.term,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: term.definition,
-            },
-          })),
-        })}
-      </script>
-
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center mb-8">
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => navigate("/")}
-            className="mr-4"
+            onClick={() => router.push(`/${locale}`)}
+            className="mr-4 rtl:mr-4 ltr:ml-4 ltr:mr-0"
           >
-            <ArrowRight className="h-5 w-5" />
-            <span className="sr-only">חזרה לדף הבית</span>
+            <ArrowRight className="h-5 w-5 rtl:rotate-0 ltr:rotate-180" />
+            <span className="sr-only">{t("backToHome")}</span>
           </Button>
-          <h1 className="text-3xl font-bold mr-3">מילון מונחים לפסח</h1>
+          <h1 className="text-3xl font-bold mr-3 rtl:mr-3 ltr:ml-3 ltr:mr-0">
+            {t("title")}
+          </h1>
         </div>
 
         <div className="mb-8 max-w-2xl mx-auto">
           <div className="relative">
-            <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground rtl:right-4 rtl:left-auto ltr:left-4 ltr:right-auto" />
             <Input
               type="text"
-              placeholder="חפש מונח..."
+              placeholder={t("searchPlaceholder")}
               className="h-12 pr-12 pl-12 text-lg rounded-2xl shadow-md"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -123,11 +109,11 @@ export default function GlossaryPage() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 h-8 w-8 text-muted-foreground hover:text-foreground"
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 h-8 w-8 text-muted-foreground hover:text-foreground rtl:left-3 rtl:right-auto ltr:right-3 ltr:left-auto"
                 onClick={handleClearSearch}
               >
                 <XCircle className="h-5 w-5" />
-                <span className="sr-only">נקה חיפוש</span>
+                <span className="sr-only">{tCommon("clearSearch")}</span>
               </Button>
             )}
           </div>
@@ -153,7 +139,7 @@ export default function GlossaryPage() {
                     <div className="mb-4">
                       <div className="flex items-center gap-2 mb-2">
                         <Lightbulb className="h-4 w-4 text-primary" />
-                        <h3 className="text-sm font-medium">דוגמאות:</h3>
+                        <h3 className="text-sm font-medium">{t("examples")}</h3>
                       </div>
                       <ul className="list-disc list-inside space-y-1 text-muted-foreground">
                         {term.examples.map((example, index) => (
@@ -169,13 +155,13 @@ export default function GlossaryPage() {
                     <div className="mb-4">
                       <div className="flex items-center gap-2 mb-2">
                         <BookOpen className="h-4 w-4 text-primary" />
-                        <h3 className="text-sm font-medium">מקורות:</h3>
+                        <h3 className="text-sm font-medium">{t("sources")}</h3>
                       </div>
                       <ul className="space-y-1">
                         {term.sources.map((source, index) => (
                           <li
                             key={index}
-                            className="text-sm relative pr-4 before:absolute before:content-['•'] before:right-0 before:text-primary text-muted-foreground"
+                            className="text-sm relative pr-4 before:absolute before:content-['•'] before:right-0 before:text-primary text-muted-foreground rtl:pr-4 rtl:before:right-0 ltr:pl-4 ltr:pr-0 ltr:before:left-0 ltr:before:right-auto"
                           >
                             {source}
                           </li>
@@ -189,7 +175,7 @@ export default function GlossaryPage() {
                   <CardFooter className="border-t pt-4">
                     <div>
                       <h3 className="text-sm font-medium mb-2">
-                        מונחים קשורים:
+                        {t("relatedTerms")}
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {term.relatedTerms.map((relatedTerm, index) => (
@@ -209,9 +195,9 @@ export default function GlossaryPage() {
         {filteredTerms.length === 0 && (
           <div className="text-center p-8 bg-muted rounded-lg max-w-md mx-auto mt-8">
             <p className="text-xl">
-              לא נמצאו מונחים עבור &quot;{searchQuery}&quot;
+              {t("noResults")} &quot;{searchQuery}&quot;
             </p>
-            <p className="text-muted-foreground mt-2">נסה לחפש מונח אחר</p>
+            <p className="text-muted-foreground mt-2">{t("tryAnother")}</p>
           </div>
         )}
       </div>

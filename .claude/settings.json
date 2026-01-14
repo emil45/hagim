@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm uninstall:*)",
+      "Bash(npm install:*)",
+      "Bash(mv:*)",
+      "Bash(npm run dev:*)",
+      "Bash(rm:*)",
+      "Bash(mkdir:*)",
+      "WebFetch(domain:freeanimalsounds.org)",
+      "Bash(curl:*)",
+      "WebFetch(domain:mixkit.co)",
+      "WebFetch(domain:pixabay.com)",
+      "Bash(ffmpeg:*)",
+      "Bash(cp:*)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(done)",
+      "Bash(grep:*)",
+      "WebSearch"
+    ],
+    "deny": []
+  },
+  "enabledPlugins": {
+    "code-simplifier@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true
+  }
+}
