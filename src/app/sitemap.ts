@@ -1,25 +1,33 @@
 import { MetadataRoute } from "next";
-import { routing } from "@/i18n/routing";
+import { routing, Locale } from "@/i18n/routing";
 import { getLocalizedUrl } from "@/lib/locale";
 
-export const dynamic = "force-static";
+const BASE_URL = "https://hagim.online";
+const PAGES = ["", "/glossary", "/about"];
+
+function generateAlternates(page: string): Record<Locale | "x-default", string> {
+  const alternates: Record<string, string> = {};
+  for (const locale of routing.locales) {
+    alternates[locale] = getLocalizedUrl(page || "/", locale, BASE_URL);
+  }
+  // x-default points to the default locale (Hebrew at root)
+  alternates["x-default"] = getLocalizedUrl(page || "/", routing.defaultLocale, BASE_URL);
+  return alternates as Record<Locale | "x-default", string>;
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://hagim.online";
-
-  const pages = ["", "/glossary", "/about"];
-
   const entries: MetadataRoute.Sitemap = [];
 
-  // Generate entries for each locale and page
-  // Hebrew pages are at root (/), other locales are prefixed (/en/, /ru/)
   for (const locale of routing.locales) {
-    for (const page of pages) {
+    for (const page of PAGES) {
       entries.push({
-        url: getLocalizedUrl(page || "/", locale, baseUrl),
+        url: getLocalizedUrl(page || "/", locale, BASE_URL),
         lastModified: new Date(),
-        changeFrequency: "daily",
-        priority: page === "" ? 1 : 0.8,
+        changeFrequency: "weekly",
+        priority: page === "" ? 1.0 : 0.8,
+        alternates: {
+          languages: generateAlternates(page),
+        },
       });
     }
   }

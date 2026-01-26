@@ -1,6 +1,15 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Homepage', () => {
+  test('Root URL serves Hebrew content (SEO)', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('h1').first()).toBeVisible();
+    await expect(page.locator('html')).toHaveAttribute('lang', 'he');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+    // URL should stay at root, no redirect
+    expect(page.url()).toMatch(/\/$/);
+  });
+
   test('Hebrew homepage loads', async ({ page }) => {
     await page.goto('/he');
     await expect(page.locator('h1').first()).toBeVisible();
