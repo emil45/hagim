@@ -112,7 +112,21 @@
   "nav": {
     "home": "Home",
     "glossary": "Glossary",
+    "about": "About",
     "contact": "Contact"
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "A guide to kashering utensils for Passover",
+    "backToHome": "Back to Home",
+    "missionTitle": "Our Mission",
+    "missionContent": "This website was created to help Jews around the world prepare their kitchens for Passover. We provide clear and accurate halachic information about kashering utensils, based on sources from the Torah, Gemara, and Poskim.",
+    "featuresTitle": "What You'll Find Here",
+    "feature1": "Easy and quick search for kitchen utensils and their kashering methods",
+    "feature2": "Comprehensive glossary to understand halachic terms",
+    "feature3": "Detailed halachic sources for every instruction",
+    "disclaimerTitle": "Important Disclaimer",
+    "disclaimerContent": "The information on this site is for general education only and does not replace halachic rulings. For halachic questions, please consult a Rabbi."
   },
   "home": {
     "title": "Kashering Utensils for Passover",

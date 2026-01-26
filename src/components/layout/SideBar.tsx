@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Settings, MessageCircle, X, Book, Home } from "lucide-react";
+import { Settings, MessageCircle, X, Book, Home, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { tribes } from "@/lib/data";
 import { LanguageSwitcher } from "@/components/feature/LanguageSwitcher";
@@ -43,7 +43,8 @@ export function Sidebar({
   const isRTL = locale === "he";
 
   const isGlossaryActive = currentPath.includes("/glossary");
-  const isHomeActive = !isGlossaryActive;
+  const isAboutActive = currentPath.includes("/about");
+  const isHomeActive = !isGlossaryActive && !isAboutActive;
 
   const sidebarPositionClasses = getSidebarPositionClasses(isRTL, isOpen);
 
@@ -98,6 +99,17 @@ export function Sidebar({
                 <Link href={`/${locale}/glossary`}>
                   <Book className="h-4 w-4 ml-2 rtl:ml-2 ltr:mr-2 ltr:ml-0" />
                   <span>{t("nav.glossary")}</span>
+                </Link>
+              </Button>
+              <Button
+                variant={isAboutActive ? "default" : "outline"}
+                className="w-full justify-start"
+                asChild
+                onClick={toggleSidebar}
+              >
+                <Link href={`/${locale}/about`}>
+                  <Info className="h-4 w-4 ml-2 rtl:ml-2 ltr:mr-2 ltr:ml-0" />
+                  <span>{t("nav.about")}</span>
                 </Link>
               </Button>
             </div>
