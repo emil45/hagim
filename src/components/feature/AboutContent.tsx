@@ -4,6 +4,7 @@ import { useRouter, useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getLocalizedPath } from "@/lib/locale";
 
 export function AboutContent(): React.ReactElement {
   const router = useRouter();
@@ -18,7 +19,7 @@ export function AboutContent(): React.ReactElement {
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => router.push(`/${locale}`)}
+            onClick={() => router.push(getLocalizedPath("/", locale))}
             className="mr-4 rtl:mr-4 ltr:ml-4 ltr:mr-0"
           >
             <ArrowRight className="h-5 w-5 rtl:rotate-0 ltr:rotate-180" />

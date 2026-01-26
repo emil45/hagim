@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { AppShell } from "@/components/AppShell";
 import { AboutContent } from "@/components/feature/AboutContent";
-import { routing, Locale } from "@/i18n/routing";
+import { Locale } from "@/i18n/routing";
+import { generateLanguageAlternates, getLocalizedUrl } from "@/lib/locale";
 
 const BASE_URL = "https://hagim.online";
 
@@ -25,22 +26,20 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "about" });
   const tMeta = await getTranslations({ locale, namespace: "metadata" });
 
-  const languages: Record<string, string> = {};
-  for (const loc of routing.locales) {
-    languages[loc] = `${BASE_URL}/${loc}/about`;
-  }
+  const languages = generateLanguageAlternates("/about", BASE_URL);
+  const canonicalUrl = getLocalizedUrl("/about", locale, BASE_URL);
 
   return {
     title: t("title"),
     description: t("subtitle"),
     alternates: {
-      canonical: `${BASE_URL}/${locale}/about`,
+      canonical: canonicalUrl,
       languages,
     },
     openGraph: {
       title: t("title"),
       description: t("subtitle"),
-      url: `${BASE_URL}/${locale}/about`,
+      url: canonicalUrl,
       siteName: tMeta("title"),
       locale: LOCALE_TO_OG_LOCALE[locale as Locale] ?? "en_US",
       type: "website",

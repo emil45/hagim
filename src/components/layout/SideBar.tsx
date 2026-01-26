@@ -7,6 +7,7 @@ import { Settings, MessageCircle, X, Book, Home, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { tribes } from "@/lib/data";
 import { LanguageSwitcher } from "@/components/feature/LanguageSwitcher";
+import { getLocalizedPath } from "@/lib/locale";
 
 interface SidebarProps {
   selectedTribe: string;
@@ -85,7 +86,7 @@ export function Sidebar({
                 asChild
                 onClick={toggleSidebar}
               >
-                <Link href={`/${locale}`}>
+                <Link href={getLocalizedPath("/", locale)}>
                   <Home className="h-4 w-4 ml-2 rtl:ml-2 ltr:mr-2 ltr:ml-0" />
                   {t("nav.home")}
                 </Link>
@@ -96,7 +97,7 @@ export function Sidebar({
                 asChild
                 onClick={toggleSidebar}
               >
-                <Link href={`/${locale}/glossary`}>
+                <Link href={getLocalizedPath("/glossary", locale)}>
                   <Book className="h-4 w-4 ml-2 rtl:ml-2 ltr:mr-2 ltr:ml-0" />
                   <span>{t("nav.glossary")}</span>
                 </Link>
@@ -107,7 +108,7 @@ export function Sidebar({
                 asChild
                 onClick={toggleSidebar}
               >
-                <Link href={`/${locale}/about`}>
+                <Link href={getLocalizedPath("/about", locale)}>
                   <Info className="h-4 w-4 ml-2 rtl:ml-2 ltr:mr-2 ltr:ml-0" />
                   <span>{t("nav.about")}</span>
                 </Link>

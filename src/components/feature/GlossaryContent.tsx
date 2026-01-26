@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Search, BookOpen, XCircle, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { getLocalizedPath } from "@/lib/locale";
 import {
   Card,
   CardContent,
@@ -80,7 +81,7 @@ export function GlossaryContent(): React.ReactElement {
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => router.push(`/${locale}`)}
+            onClick={() => router.push(getLocalizedPath("/", locale))}
             className="mr-4 rtl:mr-4 ltr:ml-4 ltr:mr-0"
           >
             <ArrowRight className="h-5 w-5 rtl:rotate-0 ltr:rotate-180" />

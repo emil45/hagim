@@ -3,7 +3,8 @@ import { setRequestLocale, getTranslations, getMessages } from "next-intl/server
 import { AppShell } from "@/components/AppShell";
 import { GlossaryContent } from "@/components/feature/GlossaryContent";
 import { GLOSSARY_TERM_IDS } from "@/lib/glossaryData";
-import { routing, Locale } from "@/i18n/routing";
+import { Locale } from "@/i18n/routing";
+import { generateLanguageAlternates, getLocalizedUrl } from "@/lib/locale";
 import type { GlossaryTermContent } from "@/types/glossary";
 
 const BASE_URL = "https://hagim.online";
@@ -31,22 +32,20 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "glossary" });
   const tMeta = await getTranslations({ locale, namespace: "metadata" });
 
-  const languages: Record<string, string> = {};
-  for (const loc of routing.locales) {
-    languages[loc] = `${BASE_URL}/${loc}/glossary`;
-  }
+  const languages = generateLanguageAlternates("/glossary", BASE_URL);
+  const canonicalUrl = getLocalizedUrl("/glossary", locale, BASE_URL);
 
   return {
     title: t("title"),
     description: t("subtitle"),
     alternates: {
-      canonical: `${BASE_URL}/${locale}/glossary`,
+      canonical: canonicalUrl,
       languages,
     },
     openGraph: {
       title: t("title"),
       description: t("subtitle"),
-      url: `${BASE_URL}/${locale}/glossary`,
+      url: canonicalUrl,
       siteName: tMeta("title"),
       locale: LOCALE_TO_OG_LOCALE[locale as Locale] ?? "en_US",
       type: "website",

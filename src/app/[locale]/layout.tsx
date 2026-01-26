@@ -7,6 +7,7 @@ import { setRequestLocale, getMessages, getTranslations } from "next-intl/server
 import { NextIntlClientProvider } from "next-intl";
 import { routing, Locale } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { generateLanguageAlternates, getLocalizedUrl } from "@/lib/locale";
 
 const BASE_URL = "https://hagim.online";
 
@@ -39,10 +40,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
 
-  const languages: Record<string, string> = {};
-  for (const loc of routing.locales) {
-    languages[loc] = `${BASE_URL}/${loc}`;
-  }
+  const languages = generateLanguageAlternates("", BASE_URL);
+  const canonicalUrl = getLocalizedUrl("", locale, BASE_URL);
 
   return {
     title: {
@@ -60,13 +59,13 @@ export async function generateMetadata({
       telephone: false,
     },
     alternates: {
-      canonical: `${BASE_URL}/${locale}`,
+      canonical: canonicalUrl,
       languages,
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: `${BASE_URL}/${locale}`,
+      url: canonicalUrl,
       siteName: t("title"),
       locale: LOCALE_TO_OG_LOCALE[locale as Locale] ?? "en_US",
       type: "website",

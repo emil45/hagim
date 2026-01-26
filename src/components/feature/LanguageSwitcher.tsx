@@ -3,6 +3,7 @@
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { routing, Locale } from "@/i18n/routing";
+import { getLocalizedPath, getPathWithoutLocale } from "@/lib/locale";
 
 const LANGUAGE_NAMES: Record<Locale, string> = {
   he: "עברית",
@@ -17,8 +18,11 @@ export function LanguageSwitcher(): React.ReactElement {
   const currentLocale = params.locale as Locale;
 
   function switchLocale(newLocale: Locale): void {
-    const pathWithoutLocale = pathname.replace(`/${currentLocale}`, "");
-    router.push(`/${newLocale}${pathWithoutLocale}`);
+    // Get the path without the current locale prefix
+    const pathWithoutLocale = getPathWithoutLocale(pathname, currentLocale);
+    // Get the new localized path
+    const newPath = getLocalizedPath(pathWithoutLocale, newLocale);
+    router.push(newPath);
   }
 
   return (
