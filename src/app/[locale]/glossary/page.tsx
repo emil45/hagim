@@ -61,8 +61,11 @@ export default async function GlossaryPage({ params }: PageProps): Promise<React
   const messages = (await getMessages()) as unknown as Messages;
   const glossaryTermsMessages = messages.glossaryTerms || {};
 
+  const t = await getTranslations({ locale, namespace: "glossary" });
+  const tNav = await getTranslations({ locale, namespace: "nav" });
+
   // Build localized JSON-LD FAQ Schema
-  const jsonLd = {
+  const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: GLOSSARY_TERM_IDS.map((termId) => {
@@ -78,11 +81,34 @@ export default async function GlossaryPage({ params }: PageProps): Promise<React
     }),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: tNav("home"),
+        item: getLocalizedUrl("", locale, BASE_URL),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t("title"),
+        item: getLocalizedUrl("/glossary", locale, BASE_URL),
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <AppShell>
         <GlossaryContent />

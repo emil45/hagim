@@ -51,9 +51,37 @@ export default async function AboutPage({ params }: PageProps): Promise<React.Re
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations({ locale, namespace: "about" });
+  const tNav = await getTranslations({ locale, namespace: "nav" });
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: tNav("home"),
+        item: getLocalizedUrl("", locale, BASE_URL),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t("title"),
+        item: getLocalizedUrl("/about", locale, BASE_URL),
+      },
+    ],
+  };
+
   return (
-    <AppShell>
-      <AboutContent />
-    </AppShell>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <AppShell>
+        <AboutContent />
+      </AppShell>
+    </>
   );
 }

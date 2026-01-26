@@ -1,9 +1,50 @@
-import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { AppShell } from "@/components/AppShell";
 import { HomeContent } from "@/components/feature/HomeContent";
+import { Locale } from "@/i18n/routing";
+import { generateLanguageAlternates, getLocalizedUrl } from "@/lib/locale";
+
+const BASE_URL = "https://hagim.online";
+
+const LOCALE_TO_OG_LOCALE: Record<Locale, string> = {
+  he: "he_IL",
+  ru: "ru_RU",
+  en: "en_US",
+};
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
+  const tMeta = await getTranslations({ locale, namespace: "metadata" });
+
+  const languages = generateLanguageAlternates("", BASE_URL);
+  const canonicalUrl = getLocalizedUrl("", locale, BASE_URL);
+
+  return {
+    title: t("title"),
+    description: tMeta("description"),
+    alternates: {
+      canonical: canonicalUrl,
+      languages,
+    },
+    openGraph: {
+      title: t("title"),
+      description: tMeta("description"),
+      url: canonicalUrl,
+      siteName: tMeta("title"),
+      locale: LOCALE_TO_OG_LOCALE[locale as Locale] ?? "en_US",
+      type: "website",
+    },
+  };
 }
 
 export default async function HomePage({ params }: PageProps): Promise<React.ReactElement> {
