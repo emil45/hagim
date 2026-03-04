@@ -560,16 +560,24 @@
     }
   },
   "metadata": {
-    "title": "Kashering Utensils for Passover",
+    "title": "Kashering Utensils for Passover {year}",
     "titleTemplate": "%s | Kashering Utensils for Passover",
-    "description": "A clear and precise halachic guide to kashering utensils for Passover: hagala, libun, iruy, chametz and se'or - including sources from the Torah, Gemara and Poskim. Suitable for all levels.",
-    "keywords": "kashering utensils, Passover, Pesach, chametz, hagala, libun, se'or, iruy, Passover laws, kitchen kashering"
+    "description": "A clear and precise halachic guide to kashering utensils for Passover {year}: hagala, libun, iruy, chametz and se'or - including sources from the Torah, Gemara and Poskim. Suitable for all levels.",
+    "keywords": "kashering utensils, Passover {year}, Pesach {year}, chametz, hagala, libun, se'or, iruy, Passover laws, kitchen kashering"
   },
   "nav": {
     "home": "Home",
     "glossary": "Glossary",
     "about": "About",
+    "checklist": "Kashering Checklist",
     "contact": "Contact"
+  },
+  "checklist": {
+    "title": "Kashering Checklist",
+    "subtitle": "Track which kitchen items you've already kashered for Passover",
+    "backToHome": "Back to Home",
+    "progress": "{done} of {total} completed",
+    "resetAll": "Reset All"
   },
   "about": {
     "title": "About",

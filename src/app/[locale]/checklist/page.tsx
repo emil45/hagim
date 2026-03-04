@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { setRequestLocale, getTranslations, getMessages } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { AppShell } from "@/components/AppShell";
-import { HomeContent } from "@/components/feature/HomeContent";
+import { ChecklistContent } from "@/components/feature/ChecklistContent";
 import { Locale } from "@/i18n/routing";
 import { generateLanguageAlternates, getLocalizedUrl, getHebrewYear } from "@/lib/locale";
 
@@ -17,45 +17,31 @@ interface PageProps {
   params: Promise<{ locale: string }>;
 }
 
-interface ToolData {
-  tool: string;
-  process: string;
-}
-
-interface Messages {
-  tools: {
-    east: Record<string, ToolData>;
-    ashkenaz: Record<string, ToolData>;
-    chabad: Record<string, ToolData>;
-    teiman: Record<string, ToolData>;
-  };
-}
-
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "home" });
+  const t = await getTranslations({ locale, namespace: "checklist" });
   const tMeta = await getTranslations({ locale, namespace: "metadata" });
 
   const year = new Date().getFullYear();
   const yearParams = { year: String(year), hebrewYear: getHebrewYear(year) };
 
-  const languages = generateLanguageAlternates("", BASE_URL);
-  const canonicalUrl = getLocalizedUrl("", locale, BASE_URL);
+  const languages = generateLanguageAlternates("/checklist", BASE_URL);
+  const canonicalUrl = getLocalizedUrl("/checklist", locale, BASE_URL);
 
   return {
     title: t("title"),
-    description: tMeta("description", yearParams),
+    description: t("subtitle"),
     alternates: {
       canonical: canonicalUrl,
       languages,
     },
     openGraph: {
       title: t("title"),
-      description: tMeta("description", yearParams),
+      description: t("subtitle"),
       url: canonicalUrl,
       siteName: tMeta("title", yearParams),
       locale: LOCALE_TO_OG_LOCALE[locale as Locale] ?? "en_US",
@@ -64,31 +50,17 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: t("title"),
-      description: tMeta("description", yearParams),
+      description: t("subtitle"),
     },
   };
 }
 
-export default async function HomePage({ params }: PageProps): Promise<React.ReactElement> {
+export default async function ChecklistPage({ params }: PageProps): Promise<React.ReactElement> {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const messages = (await getMessages()) as unknown as Messages;
+  const t = await getTranslations({ locale, namespace: "checklist" });
   const tNav = await getTranslations({ locale, namespace: "nav" });
-
-  const eastTools = messages.tools?.east || {};
-
-  // Build ItemList schema from all east tools (primary/most complete set)
-  const itemListSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: Object.values(eastTools).map((tool, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: tool.tool,
-      description: tool.process,
-    })),
-  };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -100,6 +72,12 @@ export default async function HomePage({ params }: PageProps): Promise<React.Rea
         name: tNav("home"),
         item: getLocalizedUrl("", locale, BASE_URL),
       },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t("title"),
+        item: getLocalizedUrl("/checklist", locale, BASE_URL),
+      },
     ],
   };
 
@@ -107,14 +85,10 @@ export default async function HomePage({ params }: PageProps): Promise<React.Rea
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <AppShell>
-        <HomeContent />
+        <ChecklistContent />
       </AppShell>
     </>
   );

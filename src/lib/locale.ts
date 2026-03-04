@@ -55,3 +55,23 @@ export function getPathWithoutLocale(pathname: string, currentLocale: string): s
 export function isDefaultLocale(locale: string): boolean {
   return locale === routing.defaultLocale;
 }
+
+/**
+ * Maps a Gregorian year to the corresponding Hebrew year string.
+ * The Hebrew year starts in Tishrei (Sep/Oct), so for most of the Gregorian year
+ * (Jan–Sep) the Hebrew year = Gregorian + 3760.
+ * This returns the Hebrew year that overlaps Pesach (Nisan) of that Gregorian year.
+ */
+const HEBREW_YEAR_STRINGS: Record<number, string> = {
+  5785: "תשפ״ה",
+  5786: "תשפ״ו",
+  5787: "תשפ״ז",
+  5788: "תשפ״ח",
+  5789: "תשפ״ט",
+  5790: "תש״צ",
+};
+
+export function getHebrewYear(gregorianYear: number): string {
+  const hebrewYear = gregorianYear + 3760;
+  return HEBREW_YEAR_STRINGS[hebrewYear] ?? `${hebrewYear}`;
+}

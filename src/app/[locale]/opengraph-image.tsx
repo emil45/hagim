@@ -9,10 +9,14 @@ export const size = {
 };
 export const contentType = "image/png";
 
+// Satori lacks RTL support (vercel/satori#74) so Hebrew text renders reversed.
+// For Hebrew: use a clean branded image without text — og:title/og:description
+// meta tags handle the text on social platforms.
+// For LTR locales: render text normally.
 const OG_CONTENT: Record<Locale, { title: string; subtitle: string; alt: string }> = {
   he: {
-    title: "הכשרת כלים לפסח",
-    subtitle: "מדריך הלכתי להכשרת כלים",
+    title: "",
+    subtitle: "",
     alt: "הכשרת כלים לפסח",
   },
   en: {
@@ -36,7 +40,7 @@ export function generateImageMetadata({ params }: { params: { locale: string } }
 export default function Image({ params }: { params: { locale: string } }): ImageResponse {
   const locale = params.locale as Locale;
   const content = OG_CONTENT[locale] ?? OG_CONTENT.he;
-  const isRtl = locale === "he";
+  const hasText = content.title.length > 0;
 
   return new ImageResponse(
     (
@@ -52,44 +56,42 @@ export default function Image({ params }: { params: { locale: string } }): Image
           fontFamily: "system-ui, sans-serif",
         }}
       >
-        <div
-          style={{
-            fontSize: 120,
-            marginBottom: 20,
-          }}
-        >
+        <div style={{ fontSize: hasText ? 120 : 160, marginBottom: hasText ? 20 : 30 }}>
           🍷
         </div>
-        <div
-          style={{
-            fontSize: 72,
-            fontWeight: 700,
-            color: "white",
-            textAlign: "center",
-            marginBottom: 20,
-            direction: isRtl ? "rtl" : "ltr",
-            padding: "0 40px",
-          }}
-        >
-          {content.title}
-        </div>
-        <div
-          style={{
-            fontSize: 32,
-            color: "#e0e0e0",
-            textAlign: "center",
-            direction: isRtl ? "rtl" : "ltr",
-            padding: "0 40px",
-          }}
-        >
-          {content.subtitle}
-        </div>
+        {hasText && (
+          <div
+            style={{
+              fontSize: 72,
+              fontWeight: 700,
+              color: "white",
+              textAlign: "center",
+              marginBottom: 20,
+              padding: "0 40px",
+            }}
+          >
+            {content.title}
+          </div>
+        )}
+        {hasText && (
+          <div
+            style={{
+              fontSize: 32,
+              color: "#e0e0e0",
+              textAlign: "center",
+              padding: "0 40px",
+            }}
+          >
+            {content.subtitle}
+          </div>
+        )}
         <div
           style={{
             position: "absolute",
             bottom: 40,
-            fontSize: 24,
-            color: "#a0a0a0",
+            fontSize: hasText ? 24 : 36,
+            color: hasText ? "#a0a0a0" : "#c0c0c0",
+            fontWeight: hasText ? 400 : 600,
           }}
         >
           hagim.online

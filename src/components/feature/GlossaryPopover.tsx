@@ -32,9 +32,10 @@ export function GlossaryPopover({
     <Popover>
       <PopoverTrigger asChild>
         <span
-          className="underline decoration-dotted decoration-primary/50 underline-offset-2 cursor-pointer hover:decoration-primary transition-colors"
           role="button"
           tabIndex={0}
+          style={{ all: "unset", cursor: "pointer", textDecoration: "underline", textDecorationStyle: "dotted", textUnderlineOffset: "2px" }}
+          className="decoration-primary/50 hover:decoration-primary"
         >
           {children}
         </span>

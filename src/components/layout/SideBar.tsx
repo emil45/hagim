@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Settings, MessageCircle, X, Book, Home, Info } from "lucide-react";
+import { Settings, MessageCircle, X, Book, Home, Info, ListChecks } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const tribes = [
   { id: "east", disabled: false },
@@ -49,8 +49,9 @@ export function Sidebar({
   const isRTL = locale === "he";
 
   const isGlossaryActive = currentPath.includes("/glossary");
+  const isChecklistActive = currentPath.includes("/checklist");
   const isAboutActive = currentPath.includes("/about");
-  const isHomeActive = !isGlossaryActive && !isAboutActive;
+  const isHomeActive = !isGlossaryActive && !isChecklistActive && !isAboutActive;
 
   const sidebarPositionClasses = getSidebarPositionClasses(isRTL, isOpen);
 
@@ -105,6 +106,17 @@ export function Sidebar({
                 <Link href={getLocalizedPath("/glossary", locale)}>
                   <Book className="h-4 w-4 ml-2 rtl:ml-2 ltr:mr-2 ltr:ml-0" />
                   <span>{t("nav.glossary")}</span>
+                </Link>
+              </Button>
+              <Button
+                variant={isChecklistActive ? "default" : "outline"}
+                className="w-full justify-start"
+                asChild
+                onClick={toggleSidebar}
+              >
+                <Link href={getLocalizedPath("/checklist", locale)}>
+                  <ListChecks className="h-4 w-4 ml-2 rtl:ml-2 ltr:mr-2 ltr:ml-0" />
+                  <span>{t("nav.checklist")}</span>
                 </Link>
               </Button>
               <Button

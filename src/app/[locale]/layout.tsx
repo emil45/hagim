@@ -7,7 +7,7 @@ import { setRequestLocale, getMessages, getTranslations } from "next-intl/server
 import { NextIntlClientProvider } from "next-intl";
 import { routing, Locale } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { generateLanguageAlternates, getLocalizedUrl } from "@/lib/locale";
+import { generateLanguageAlternates, getLocalizedUrl, getHebrewYear } from "@/lib/locale";
 
 const BASE_URL = "https://hagim.online";
 
@@ -40,16 +40,19 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
 
+  const year = new Date().getFullYear();
+  const yearParams = { year: String(year), hebrewYear: getHebrewYear(year) };
+
   const languages = generateLanguageAlternates("", BASE_URL);
   const canonicalUrl = getLocalizedUrl("", locale, BASE_URL);
 
   return {
     title: {
-      default: t("title"),
+      default: t("title", yearParams),
       template: t("titleTemplate"),
     },
-    description: t("description"),
-    keywords: t("keywords"),
+    description: t("description", yearParams),
+    keywords: t("keywords", yearParams),
     authors: [{ name: "Emanuel" }],
     creator: "Emanuel",
     publisher: "hagim.online",
@@ -63,17 +66,17 @@ export async function generateMetadata({
       languages,
     },
     openGraph: {
-      title: t("title"),
-      description: t("description"),
+      title: t("title", yearParams),
+      description: t("description", yearParams),
       url: canonicalUrl,
-      siteName: t("title"),
+      siteName: t("title", yearParams),
       locale: LOCALE_TO_OG_LOCALE[locale as Locale] ?? "en_US",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: t("title"),
-      description: t("description"),
+      title: t("title", yearParams),
+      description: t("description", yearParams),
     },
     robots: {
       index: true,
@@ -105,17 +108,21 @@ export default async function LocaleLayout({
   const t = await getTranslations({ locale, namespace: "metadata" });
   const dir = locale === "he" ? "rtl" : "ltr";
 
+  const year = new Date().getFullYear();
+  const yearParams = { year: String(year), hebrewYear: getHebrewYear(year) };
+
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: t("title"),
+    name: t("title", yearParams),
     url: BASE_URL,
-    description: t("description"),
+    description: t("description", yearParams),
     inLanguage: ["he", "en", "ru"],
     publisher: {
       "@type": "Organization",
       name: "hagim.online",
       url: BASE_URL,
+      sameAs: [BASE_URL],
     },
   };
 

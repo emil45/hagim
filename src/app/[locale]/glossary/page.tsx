@@ -4,7 +4,7 @@ import { AppShell } from "@/components/AppShell";
 import { GlossaryContent } from "@/components/feature/GlossaryContent";
 import { GLOSSARY_TERM_IDS } from "@/lib/glossaryData";
 import { Locale } from "@/i18n/routing";
-import { generateLanguageAlternates, getLocalizedUrl } from "@/lib/locale";
+import { generateLanguageAlternates, getLocalizedUrl, getHebrewYear } from "@/lib/locale";
 import type { GlossaryTermContent } from "@/types/glossary";
 
 const BASE_URL = "https://hagim.online";
@@ -32,6 +32,9 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "glossary" });
   const tMeta = await getTranslations({ locale, namespace: "metadata" });
 
+  const year = new Date().getFullYear();
+  const yearParams = { year: String(year), hebrewYear: getHebrewYear(year) };
+
   const languages = generateLanguageAlternates("/glossary", BASE_URL);
   const canonicalUrl = getLocalizedUrl("/glossary", locale, BASE_URL);
 
@@ -46,9 +49,14 @@ export async function generateMetadata({
       title: t("title"),
       description: t("subtitle"),
       url: canonicalUrl,
-      siteName: tMeta("title"),
+      siteName: tMeta("title", yearParams),
       locale: LOCALE_TO_OG_LOCALE[locale as Locale] ?? "en_US",
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("subtitle"),
     },
   };
 }

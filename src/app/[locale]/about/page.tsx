@@ -3,7 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { AppShell } from "@/components/AppShell";
 import { AboutContent } from "@/components/feature/AboutContent";
 import { Locale } from "@/i18n/routing";
-import { generateLanguageAlternates, getLocalizedUrl } from "@/lib/locale";
+import { generateLanguageAlternates, getLocalizedUrl, getHebrewYear } from "@/lib/locale";
 
 const BASE_URL = "https://hagim.online";
 
@@ -26,6 +26,9 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "about" });
   const tMeta = await getTranslations({ locale, namespace: "metadata" });
 
+  const year = new Date().getFullYear();
+  const yearParams = { year: String(year), hebrewYear: getHebrewYear(year) };
+
   const languages = generateLanguageAlternates("/about", BASE_URL);
   const canonicalUrl = getLocalizedUrl("/about", locale, BASE_URL);
 
@@ -40,9 +43,14 @@ export async function generateMetadata({
       title: t("title"),
       description: t("subtitle"),
       url: canonicalUrl,
-      siteName: tMeta("title"),
+      siteName: tMeta("title", yearParams),
       locale: LOCALE_TO_OG_LOCALE[locale as Locale] ?? "en_US",
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("subtitle"),
     },
   };
 }
