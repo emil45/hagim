@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import type { ToolData } from "@/types/tool";
 import { useIsIOS } from "@/hooks/useIsIOS";
+import { GlossaryHighlightedText } from "@/components/feature/GlossaryHighlightedText";
 
 interface ToolCardProps {
   tool: ToolData;
@@ -63,11 +64,11 @@ export function ToolCard({ tool }: ToolCardProps): React.ReactElement {
 
           {/* Card Body with Process */}
           <div className="px-5 py-3 border-t border-b border-border/50 bg-muted/30">
-            <p className="text-lg leading-relaxed">{tool.process}</p>
+            <p className="text-lg leading-relaxed"><GlossaryHighlightedText text={tool.process} /></p>
             {tool.notes && (
               <div className="mt-3 flex items-start gap-2 p-3 rounded-md bg-muted/50 text-muted-foreground">
                 <Info className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                <p className="text-sm">{tool.notes}</p>
+                <p className="text-sm"><GlossaryHighlightedText text={tool.notes} /></p>
               </div>
             )}
           </div>

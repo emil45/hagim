@@ -4,103 +4,120 @@
       "term": "Chametz (חמץ)",
       "definition": "Food made from one of the five grains (wheat, barley, oats, spelt, rye) that has come into contact with water and remained so for more than 18 minutes — at which point it begins to ferment and becomes chametz. Chametz is forbidden to eat or derive benefit from on Passover, and there is a mitzvah to remove it before the holiday.",
       "examples": ["Bread", "Regular cakes", "Pasta", "Beer"],
-      "sources": ["Exodus 12:15", "Pesachim 5a", "Shulchan Aruch Orach Chaim 453"]
+      "sources": ["Exodus 12:15", "Pesachim 5a", "Shulchan Aruch Orach Chaim 453"],
+      "matchPatterns": ["chametz"]
     },
     "seor": {
       "term": "Se'or (שאור)",
       "definition": "Old dough that has fermented extensively — similar to a sourdough starter. It has a very strong leavening power, which is why the Torah forbids it on Passover as well. Se'or differs from chametz in that it causes other doughs to leaven.",
       "examples": ["Natural yeast", "Homemade sourdough starter"],
-      "sources": ["Exodus 12:19", "Pesachim 48a", "Shulchan Aruch Orach Chaim 453:1"]
+      "sources": ["Exodus 12:19", "Pesachim 48a", "Shulchan Aruch Orach Chaim 453:1"],
+      "matchPatterns": ["se'or", "seor"]
     },
     "hagala": {
       "term": "Hagala (הגעלה)",
       "definition": "Kashering a utensil by immersing it in vigorously boiling water. This method is used when chametz was cooked in a pot or spoon and the flavor was absorbed through liquid. Before hagala, the utensil is thoroughly cleaned, left unused for 24 hours, and then immersed in boiling water.",
       "examples": ["Kashering a pot", "Kashering a metal spoon"],
-      "sources": ["Shulchan Aruch Orach Chaim 451:5", "Mishna Berura 451:31", "Chazon Ovadia Pesach pp. 151-154"]
+      "sources": ["Shulchan Aruch Orach Chaim 451:5", "Mishna Berura 451:31", "Chazon Ovadia Pesach pp. 151-154"],
+      "matchPatterns": ["hagala", "hagalah"]
     },
     "libun-kal": {
       "term": "Libun Kal (ליבון קל)",
       "definition": "Kashering a utensil by heating it with fire or in an oven until a piece of straw placed on the other side would be singed. This is done for utensils that had dry chametz placed on them (without sauce), such as baking trays and frying pans.",
       "examples": ["Frying pan", "Baking tray"],
-      "sources": ["Mishna Berura 451:28", "Chazon Ovadia Pesach p. 152"]
+      "sources": ["Mishna Berura 451:28", "Chazon Ovadia Pesach p. 152"],
+      "matchPatterns": ["libun kal"]
     },
     "libun-chamur": {
       "term": "Libun Chamur (ליבון חמור)",
       "definition": "Heating a utensil with very strong fire until it begins to emit sparks or turns red from the heat. This is done for utensils that had chametz placed directly on fire — such as skewers or grill grates.",
       "examples": ["Skewers", "Grill grate"],
-      "sources": ["Shulchan Aruch Orach Chaim 451:4", "Mishna Berura 451:25"]
+      "sources": ["Shulchan Aruch Orach Chaim 451:4", "Mishna Berura 451:25"],
+      "matchPatterns": ["libun chamur"]
     },
     "iruy": {
       "term": "Iruy (עירוי)",
       "definition": "Pouring boiling water from a kettle or boiling pot (kli rishon) over the surface to be kashered. This is useful for surfaces such as countertops, sinks, or tables. Sometimes a heated stone (even melubenet) is also used to strengthen the kashering.",
       "examples": ["Countertop", "Sink", "Table"],
-      "sources": ["Chazon Ovadia Pesach pp. 151-154", "Mishna Berura 451:23"]
+      "sources": ["Chazon Ovadia Pesach pp. 151-154", "Mishna Berura 451:23"],
+      "matchPatterns": ["iruy"]
     },
     "iruy-kli-rishon": {
       "term": "Iruy from Kli Rishon (עירוי מכלי ראשון)",
       "definition": "Pouring boiling water directly from a vessel that was on a heat source (kli rishon). This method is stronger than pouring from a kli sheni, and sometimes a heated stone is added to reach a higher heat intensity.",
       "examples": ["Pouring from pot onto countertop", "Pouring from kettle into sink"],
-      "sources": ["Chazon Ovadia Pesach p. 151", "Pesachim 76a"]
+      "sources": ["Chazon Ovadia Pesach p. 151", "Pesachim 76a"],
+      "matchPatterns": ["iruy from kli rishon"]
     },
     "kli-rishon": {
       "term": "Kli Rishon (כלי ראשון)",
       "definition": "A vessel that was directly on a heat source — such as a pot on the stove or an electric kettle. A kli rishon is the vessel in which the food was cooked or the water was boiled, and it has a strong ability both to cook and to kasher.",
       "examples": ["Boiling pot", "Bubbling kettle"],
-      "sources": ["Pesachim 30b", "Shulchan Aruch 451"]
+      "sources": ["Pesachim 30b", "Shulchan Aruch 451"],
+      "matchPatterns": ["kli rishon"]
     },
     "kli-sheni": {
       "term": "Kli Sheni (כלי שני)",
       "definition": "A vessel into which contents were poured from the kli rishon — for example, a bowl into which boiling soup was poured. The cooking and kashering power of a kli sheni is weaker, and it is insufficient for most types of Passover kashering.",
       "examples": ["Soup bowl", "Plate with transferred food"],
-      "sources": ["Pesachim 76a", "Mishna Berura 451:14"]
+      "sources": ["Pesachim 76a", "Mishna Berura 451:14"],
+      "matchPatterns": ["kli sheni"]
     },
     "ben-yomo": {
       "term": "Ben Yomo (בן יומו)",
       "definition": "A utensil in which chametz was cooked within the last 24 hours. Such a utensil has absorbed a strong chametz flavor and may not be used for Passover before kashering. After 24 hours have passed, the absorbed flavor is considered spoiled, and there are certain leniencies in its kashering.",
       "examples": ["Pot used for pasta yesterday", "Pan used to fry bread"],
-      "sources": ["Shulchan Aruch Yoreh De'ah 121", "Mishna Berura 451:1"]
+      "sources": ["Shulchan Aruch Yoreh De'ah 121", "Mishna Berura 451:1"],
+      "matchPatterns": ["ben yomo"]
     },
     "biur-chametz": {
       "term": "Biur Chametz (ביעור חמץ)",
       "definition": "Destroying the chametz in one's possession — usually by burning, but also by scattering to the wind, throwing into the sea, or crumbling and discarding. This is done on the 14th of Nisan before the deadline for eating chametz. After the destruction, one nullifies any remaining chametz.",
       "examples": ["Burning chametz on the morning of the 14th", "Scattering chametz to the sea"],
-      "sources": ["Exodus 12:15", "Shulchan Aruch Orach Chaim 434:2-3", "Mishna Berura 434:12"]
+      "sources": ["Exodus 12:15", "Shulchan Aruch Orach Chaim 434:2-3", "Mishna Berura 434:12"],
+      "matchPatterns": ["biur chametz"]
     },
     "matza-shmura": {
       "term": "Matza Shmura (מצה שמורה)",
       "definition": "Matza made from flour that has been guarded from the time of wheat harvest to ensure it does not come into contact with water, so it will not ferment. This is the most preferred matza, and some are careful to eat only shmura matza throughout all of Passover. On the Seder night, there is a Torah obligation to eat specifically shmura matza.",
       "examples": ["Hand-made shmura matzot", "Shmura matza from field to baking"],
-      "sources": ["Shulchan Aruch Orach Chaim 454:4", "Mishna Berura 454:23", "Chazon Ovadia Pesach pp. 75-90"]
+      "sources": ["Shulchan Aruch Orach Chaim 454:4", "Mishna Berura 454:23", "Chazon Ovadia Pesach pp. 75-90"],
+      "matchPatterns": ["matza shmura", "shmura matza"]
     },
     "matza-ashira": {
       "term": "Matza Ashira (מצה עשירה)",
       "definition": "Matza kneaded with fruit juice, wine, honey, or eggs — without water. According to most halachic authorities, it is not considered matza for the purpose of fulfilling the mitzvah of eating matza on the Seder night, so one cannot fulfill the obligation with it. Some have the custom not to eat it at all during Passover, out of concern that it may have fermented.",
       "examples": ["Papushado", "Wine cookies for Passover", "Egg matzot"],
-      "sources": ["Shulchan Aruch Orach Chaim 462:1", "Mishna Berura 462:3-5", "Chazon Ovadia Pesach pp. 78-82"]
+      "sources": ["Shulchan Aruch Orach Chaim 462:1", "Mishna Berura 462:3-5", "Chazon Ovadia Pesach pp. 78-82"],
+      "matchPatterns": ["matza ashira"]
     },
     "kitniyot": {
       "term": "Kitniyot (קטניות)",
       "definition": "Types of seeds such as rice, corn, lentils, chickpeas, and beans. Although kitniyot are not chametz and do not ferment — Ashkenazi Jews adopted the custom of not eating them on Passover.\nThe custom spread mainly in medieval Europe for several reasons:\n(1) Flours can be made from kitniyot, which might be confused with grain flour.\n(2) Grain and kitniyot fields were sometimes mixed, raising concern of cross-contamination.\n(3) When cooked, kitniyot swell and appear to \"rise\" like leavened dough.\nTherefore, the custom to prohibit eating them was established, even though they are technically permitted by law.\nIn contrast, most Sephardic Jews did not adopt this custom — and permit kitniyot on Passover, as long as there is no concern of chametz contamination.",
       "examples": ["Rice", "Corn", "Chickpeas", "Lentils", "Soy"],
-      "sources": ["Responsa Maharam of Rothenburg 515", "Rema Orach Chaim 461:1", "Mishna Berura 461:6", "Chazon Ovadia Pesach pp. 197-207"]
+      "sources": ["Responsa Maharam of Rothenburg 515", "Rema Orach Chaim 461:1", "Mishna Berura 461:6", "Chazon Ovadia Pesach pp. 197-207"],
+      "matchPatterns": ["kitniyot"]
     },
     "even-melubenet": {
       "term": "Even Melubenet (אבן מלובנת)",
       "definition": "A stone (or piece of iron) heated until it is white-hot, used to strengthen the kashering process — mainly when boiling water is poured over it, to ensure the heat is sufficiently high. This is required according to some halachic authorities for countertops or sinks where chametz was absorbed through direct heat.",
       "examples": ["Heating countertop with hot stone", "Placing hot stone in sink"],
-      "sources": ["Mishna Berura 451:23", "Chazon Ovadia Pesach pp. 154-156"]
+      "sources": ["Mishna Berura 451:23", "Chazon Ovadia Pesach pp. 154-156"],
+      "matchPatterns": ["even melubenet"]
     },
     "kebolao-kach-polto": {
       "term": "Kebol'o Kach Polto (כבולעו כך פולטו)",
       "definition": "A fundamental principle of kashering utensils: the way a utensil absorbed the forbidden flavor is the way it must expel it. For example, if chametz was absorbed through cooking in water — it is kashered by hagala (boiling). If absorbed through fire — it is kashered by libun (burning). Each utensil according to its use.",
       "examples": ["Pan used dry needs libun", "Pot used for cooking needs hagala"],
-      "sources": ["Pesachim 30b", "Shulchan Aruch 451:5", "Mishna Berura 451:28"]
+      "sources": ["Pesachim 30b", "Shulchan Aruch 451:5", "Mishna Berura 451:28"],
+      "matchPatterns": ["kebol'o kach polto"]
     },
     "taarovet-chametz": {
       "term": "Taarovet Chametz (תערובת חמץ)",
       "definition": "A food or product that contains chametz mixed with other ingredients — even in a very small amount. For example: a sauce or cookie containing flour, oats, or beer. A chametz mixture is forbidden on Passover even if the flavor is barely noticeable, and one may not keep it in one's possession.",
       "examples": ["Biscuits", "Sauces with wheat starch", "Chocolates with flour"],
-      "sources": ["Pesachim 43a", "Shulchan Aruch Orach Chaim 448:2", "Mishna Berura 448:8", "Chazon Ovadia Pesach pp. 61-69"]
+      "sources": ["Pesachim 43a", "Shulchan Aruch Orach Chaim 448:2", "Mishna Berura 448:8", "Chazon Ovadia Pesach pp. 61-69"],
+      "matchPatterns": ["taarovet chametz"]
     }
   },
   "tools": {
@@ -623,6 +640,9 @@
     "title": "Settings",
     "close": "Close",
     "additionalSettings": "Additional Settings"
+  },
+  "glossaryPopover": {
+    "readMore": "Read more"
   },
   "common": {
     "close": "Close",

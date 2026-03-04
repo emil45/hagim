@@ -129,7 +129,7 @@ export function GlossaryContent(): React.ReactElement {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="h-full flex flex-col">
+              <Card id={`term-${term.id}`} className="h-full flex flex-col scroll-mt-24">
                 <CardHeader>
                   <CardTitle className="text-2xl">{term.term}</CardTitle>
                   <CardDescription className="text-lg mt-2 text-foreground/80">

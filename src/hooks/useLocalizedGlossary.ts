@@ -23,6 +23,7 @@ export function useLocalizedGlossary(): GlossaryTerm[] {
         definition: content?.definition || "",
         examples: content?.examples,
         sources: content?.sources,
+        matchPatterns: content?.matchPatterns,
         // Map related term IDs to their localized term names
         relatedTerms: base.relatedTerms?.map(
           (relId) => glossaryTermsMessages[relId]?.term || relId

@@ -3,6 +3,7 @@ export interface GlossaryTermContent {
   definition: string;
   examples?: string[];
   sources?: string[];
+  matchPatterns?: string[];
 }
 
 export interface GlossaryTermBase {
