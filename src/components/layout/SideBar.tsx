@@ -5,7 +5,12 @@ import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Settings, MessageCircle, X, Book, Home, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { tribes } from "@/lib/data";
+const tribes = [
+  { id: "east", disabled: false },
+  { id: "ashkenaz", disabled: true },
+  { id: "chabad", disabled: true },
+  { id: "teiman", disabled: true },
+];
 import { LanguageSwitcher } from "@/components/feature/LanguageSwitcher";
 import { getLocalizedPath } from "@/lib/locale";
 

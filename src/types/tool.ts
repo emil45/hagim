@@ -7,10 +7,8 @@ export interface ToolContent {
   notes?: string;
 }
 
-export interface ToolBase {
+// Merged result used by components
+export interface ToolData extends ToolContent {
   id: string;
   emoji: string;
 }
-
-// Merged result used by components
-export interface ToolData extends ToolBase, ToolContent {}
