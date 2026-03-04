@@ -1,4 +1,4 @@
-import type { ToolData } from "@/types/tool";
+import type { ToolBase } from "@/types/tool";
 import { yemenData } from "@/lib/tribeYemenData";
 import { chabadData } from "@/lib/tribeChabadData";
 import { ashkenazData } from "@/lib/tribeAshkenazData";
@@ -16,7 +16,7 @@ export const tribes: Tribe[] = [
   { id: "teiman", disabled: true },
 ];
 
-export const tribesData: Record<string, ToolData[]> = {
+export const tribesData: Record<string, ToolBase[]> = {
   east: eastData,
   ashkenaz: ashkenazData,
   chabad: chabadData,

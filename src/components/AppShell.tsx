@@ -2,12 +2,12 @@
 
 import { useState, createContext, useContext, useMemo, ReactNode } from "react";
 import { usePathname } from "next/navigation";
-import { tribesData } from "@/lib/data";
 import { TopBar } from "@/components/layout/TopBar";
 import { Sidebar } from "@/components/layout/SideBar";
 import { Footer } from "@/components/layout/Footer";
 import { ContactDialog } from "@/components/feature/ContactDialog";
 import { ScrollToTopButton } from "@/components/feature/ScrollToTopButton";
+import { useLocalizedTools } from "@/hooks/useLocalizedTools";
 import type { ToolData } from "@/types/tool";
 
 interface AppShellProps {
@@ -36,21 +36,16 @@ export function useAppContext(): AppContextType {
 }
 
 function filterTools(tools: ToolData[], query: string): ToolData[] {
-  if (query.trim() === "") {
+  const normalizedQuery = query.trim().toLowerCase();
+  if (normalizedQuery === "") {
     return [];
   }
 
-  const normalizedQuery = query.trim().toLowerCase();
-
-  return tools.filter((tool) => {
-    const toolName = tool.tool.toLowerCase();
-    if (toolName.includes(normalizedQuery)) {
-      return true;
-    }
-    return tool.aliases.some((alias) =>
-      alias.toLowerCase().includes(normalizedQuery)
-    );
-  });
+  return tools.filter((tool) =>
+    tool.tool.toLowerCase().includes(normalizedQuery) ||
+    tool.aliases.some((alias) => alias.toLowerCase().includes(normalizedQuery)) ||
+    tool.process.toLowerCase().includes(normalizedQuery)
+  );
 }
 
 export function AppShell({ children }: AppShellProps): React.ReactElement {
@@ -61,10 +56,11 @@ export function AppShell({ children }: AppShellProps): React.ReactElement {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
 
+  const localizedTools = useLocalizedTools(selectedTribe);
+
   const filteredTools = useMemo(() => {
-    const tools = tribesData[selectedTribe] ?? [];
-    return filterTools(tools, searchQuery);
-  }, [selectedTribe, searchQuery]);
+    return filterTools(localizedTools, searchQuery);
+  }, [localizedTools, searchQuery]);
 
   function handleSearch(query: string): void {
     setSearchQuery(query);

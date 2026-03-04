@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, AlertCircle, BookOpen, Fence } from "lucide-react";
+import { ChevronDown, Info, BookOpen, Fence } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -65,8 +65,8 @@ export function ToolCard({ tool }: ToolCardProps): React.ReactElement {
           <div className="px-5 py-3 border-t border-b border-border/50 bg-muted/30">
             <p className="text-lg leading-relaxed">{tool.process}</p>
             {tool.notes && (
-              <div className="mt-3 flex items-start gap-2 p-3 rounded-md bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-300">
-                <AlertCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+              <div className="mt-3 flex items-start gap-2 p-3 rounded-md bg-muted/50 text-muted-foreground">
+                <Info className="h-4 w-4 flex-shrink-0 mt-0.5" />
                 <p className="text-sm">{tool.notes}</p>
               </div>
             )}
