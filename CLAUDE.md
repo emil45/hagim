@@ -8,29 +8,56 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 npm run dev          # Start development server
 npm run build        # Build for production (static export to out/)
 npm run lint         # Run ESLint
-npm test             # Run all e2e tests
+npm test             # Run all Playwright e2e tests
 npm run test:ui      # Run tests with interactive UI
 npm run test:headed  # Run tests with browser visible
 ```
 
 ## Architecture
 
-This is a multi-locale Next.js 16 app with static export, serving a Jewish holidays guide at hagim.online.
+Multi-locale Next.js 16 app with static export, serving a Jewish holidays guide at hagim.online.
+
+### Pages
+- `/` — Home: tool cards filtered by tribe, with search
+- `/about` — About page
+- `/glossary` — Glossary with FAQ schema and search
+- `/checklist` — Interactive checklist with localStorage persistence
 
 ### Internationalization
 - **Locales**: Hebrew (he, default), English (en), Russian (ru)
-- **Routing**: `localePrefix: "as-needed"` means Hebrew uses `/`, others use `/en`, `/ru`
-- **Direction**: Hebrew is RTL, others are LTR (set via `dir` attribute on `<html>`)
+- **Routing**: `localePrefix: "as-needed"` — Hebrew at `/`, others at `/en`, `/ru`
+- **Direction**: Hebrew is RTL, others LTR (via `dir` attribute on `<html>`)
 - **Translations**: `src/messages/{he,en,ru}.json` with `next-intl`
+- **All user-facing text** lives in message files — tool data, glossary terms, UI strings
+
+### Data Model
+- **Tools**: Organized by tribe (east, ashkenaz, chabad, teiman) inside message files under `tools.*`
+- **Tool emojis**: Centralized in `src/lib/toolEmojis.ts` (maps kitchen item IDs to emojis)
+- **Glossary terms**: Defined in `src/lib/glossaryData.ts` (IDs, related terms), localized content in message files under `glossaryTerms`
+- **No separate data files** — all content is in the translation messages
 
 ### Key Patterns
 - Pages use `generateStaticParams()` to generate all locale variants
 - Use `setRequestLocale(locale)` at the start of async page components
 - Use `getLocalizedPath(path, locale)` from `src/lib/locale.ts` for internal links
-- Tribe data is split by origin: `tribeEastData.ts`, `tribeAshkenazData.ts`, etc.
+- Feature components are client components (`"use client"`) with hooks
+- `AppShell` provides context for tribe selection, search, and contact dialog
+- Custom hooks: `useLocalizedTools`, `useLocalizedGlossary`, `useChecklist`
+
+### SEO
+- JSON-LD schemas: `ItemList` (home), `BreadcrumbList` (all pages), `FAQPage` (glossary), `WebSite` (layout)
+- Dynamic OG image generation per locale (with Hebrew RTL text handling)
+- Year-aware metadata via `getHebrewYear()` in `src/lib/locale.ts`
+- Sitemap and robots.txt generated from `src/app/sitemap.ts` and `src/app/robots.ts`
 
 ### Static Export
-The app builds to `out/` directory. No server-side features (API routes, middleware) are available. The `proxy.ts` file handles locale routing at the edge.
+Builds to `out/`. No server-side features (API routes, middleware). `proxy.ts` handles locale routing at the edge.
+
+### UI Stack
+- Tailwind CSS v4, Radix UI components (in `src/components/ui/`)
+- Framer Motion for animations
+- Lucide icons
+- Dark/light theme via `ThemeProvider`
 
 ## Development Workflow
 
@@ -44,7 +71,7 @@ Before coding, launch Explore agents to find similar features, files to change, 
 ### Implement
 1. Follow existing patterns in the codebase
 2. Add UI translations to `src/messages/{he,en,ru}.json` for any user-facing text
-3. Run `npm run build` - fix ALL errors before proceeding
+3. Run `npm run build` — fix ALL errors before proceeding
 
 ### Review
 Run pr-review-toolkit agents sequentially, scoped to files you modified:
@@ -73,6 +100,7 @@ git push
 - Running review agents on entire codebase instead of scoping to changed files
 - Committing without tests passing
 - Forgetting UI translations for new text
+- Adding tool/glossary data outside message files
 
 ## When Stuck
 
