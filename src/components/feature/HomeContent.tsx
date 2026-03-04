@@ -49,9 +49,9 @@ export function HomeContent(): React.ReactElement {
   const shouldCenter = !hasSearchedOnce && !searchPerformed && !isSearchActive;
 
   return (
-    <div className="absolute inset-0 w-full">
+    <div className="w-full">
       <main
-        className={`flex justify-center w-full min-h-screen p-4 md:p-8 ${
+        className={`flex justify-center w-full min-h-[calc(100vh-4rem)] p-4 md:p-8 ${
           shouldCenter ? "pt-0" : "pt-20"
         }`}
       >

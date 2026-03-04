@@ -3,7 +3,7 @@ import { routing, Locale } from "@/i18n/routing";
 import { getLocalizedUrl } from "@/lib/locale";
 
 const BASE_URL = "https://hagim.online";
-const PAGES = ["", "/glossary", "/about"];
+const PAGES = ["", "/glossary", "/about", "/checklist"];
 
 function generateAlternates(page: string): Record<Locale | "x-default", string> {
   const alternates: Record<string, string> = {};

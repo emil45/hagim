@@ -10,14 +10,17 @@ export const size = {
 export const contentType = "image/png";
 
 // Satori lacks RTL support (vercel/satori#74) so Hebrew text renders reversed.
-// For Hebrew: use a clean branded image without text — og:title/og:description
-// meta tags handle the text on social platforms.
-// For LTR locales: render text normally.
-const OG_CONTENT: Record<Locale, { title: string; subtitle: string; alt: string }> = {
+// Workaround: manually reverse the string so Satori's LTR rendering shows it correctly.
+function reverseHebrew(str: string): string {
+  return [...str].reverse().join("");
+}
+
+const OG_CONTENT: Record<Locale, { title: string; subtitle: string; alt: string; rtl?: boolean }> = {
   he: {
-    title: "",
-    subtitle: "",
+    title: reverseHebrew("הכשרת כלים לפסח"),
+    subtitle: reverseHebrew("מדריך הלכתי להכשרת המטבח"),
     alt: "הכשרת כלים לפסח",
+    rtl: true,
   },
   en: {
     title: "Kashering Utensils for Passover",
