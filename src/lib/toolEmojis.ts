@@ -37,4 +37,5 @@ export const toolEmojis: Record<string, string> = {
   books: "📚",
   "glass-cup": "🥛",
   cutlery: "🍴",
+  perfume: "🧴",
 };

@@ -3,372 +3,764 @@
     "chametz": {
       "term": "Chametz (חמץ)",
       "definition": "Food made from one of the five grains (wheat, barley, oats, spelt, rye) that has come into contact with water and remained so for more than 18 minutes — at which point it begins to ferment and becomes chametz. Chametz is forbidden to eat or derive benefit from on Passover, and there is a mitzvah to remove it before the holiday.",
-      "examples": ["Bread", "Regular cakes", "Pasta", "Beer"],
-      "sources": ["Exodus 12:15", "Pesachim 5a", "Shulchan Aruch Orach Chaim 453"],
-      "matchPatterns": ["chametz"]
+      "examples": [
+        "Bread",
+        "Regular cakes",
+        "Pasta",
+        "Beer"
+      ],
+      "sources": [
+        "Exodus 12:15",
+        "Pesachim 5a",
+        "Shulchan Aruch Orach Chaim 453"
+      ],
+      "matchPatterns": [
+        "chametz"
+      ]
     },
     "seor": {
       "term": "Se'or (שאור)",
       "definition": "Old dough that has fermented extensively — similar to a sourdough starter. It has a very strong leavening power, which is why the Torah forbids it on Passover as well. Se'or differs from chametz in that it causes other doughs to leaven.",
-      "examples": ["Natural yeast", "Homemade sourdough starter"],
-      "sources": ["Exodus 12:19", "Pesachim 48a", "Shulchan Aruch Orach Chaim 453:1"],
-      "matchPatterns": ["se'or", "seor"]
+      "examples": [
+        "Natural yeast",
+        "Homemade sourdough starter"
+      ],
+      "sources": [
+        "Exodus 12:19",
+        "Pesachim 48a",
+        "Shulchan Aruch Orach Chaim 453:1"
+      ],
+      "matchPatterns": [
+        "se'or",
+        "seor"
+      ]
     },
     "hagala": {
       "term": "Hagala (הגעלה)",
       "definition": "Kashering a utensil by immersing it in vigorously boiling water. This method is used when chametz was cooked in a pot or spoon and the flavor was absorbed through liquid. Before hagala, the utensil is thoroughly cleaned, left unused for 24 hours, and then immersed in boiling water.",
-      "examples": ["Kashering a pot", "Kashering a metal spoon"],
-      "sources": ["Shulchan Aruch Orach Chaim 451:5", "Mishna Berura 451:31", "Chazon Ovadia Pesach pp. 151-154"],
-      "matchPatterns": ["hagala", "hagalah"]
+      "examples": [
+        "Kashering a pot",
+        "Kashering a metal spoon"
+      ],
+      "sources": [
+        "Shulchan Aruch Orach Chaim 451:5",
+        "Mishna Berura 451:31",
+        "Chazon Ovadia Pesach pp. 151-154"
+      ],
+      "matchPatterns": [
+        "hagala",
+        "hagalah"
+      ]
     },
     "libun-kal": {
       "term": "Libun Kal (ליבון קל)",
       "definition": "Kashering a utensil by heating it with fire or in an oven until a piece of straw placed on the other side would be singed. This is done for utensils that had dry chametz placed on them (without sauce), such as baking trays and frying pans.",
-      "examples": ["Frying pan", "Baking tray"],
-      "sources": ["Mishna Berura 451:28", "Chazon Ovadia Pesach p. 152"],
-      "matchPatterns": ["libun kal"]
+      "examples": [
+        "Frying pan",
+        "Baking tray"
+      ],
+      "sources": [
+        "Mishna Berura 451:28",
+        "Chazon Ovadia Pesach p. 152"
+      ],
+      "matchPatterns": [
+        "libun kal"
+      ]
     },
     "libun-chamur": {
       "term": "Libun Chamur (ליבון חמור)",
       "definition": "Heating a utensil with very strong fire until it begins to emit sparks or turns red from the heat. This is done for utensils that had chametz placed directly on fire — such as skewers or grill grates.",
-      "examples": ["Skewers", "Grill grate"],
-      "sources": ["Shulchan Aruch Orach Chaim 451:4", "Mishna Berura 451:25"],
-      "matchPatterns": ["libun chamur"]
+      "examples": [
+        "Skewers",
+        "Grill grate"
+      ],
+      "sources": [
+        "Shulchan Aruch Orach Chaim 451:4",
+        "Mishna Berura 451:25"
+      ],
+      "matchPatterns": [
+        "libun chamur"
+      ]
     },
     "iruy": {
       "term": "Iruy (עירוי)",
       "definition": "Pouring boiling water from a kettle or boiling pot (kli rishon) over the surface to be kashered. This is useful for surfaces such as countertops, sinks, or tables. Sometimes a heated stone (even melubenet) is also used to strengthen the kashering.",
-      "examples": ["Countertop", "Sink", "Table"],
-      "sources": ["Chazon Ovadia Pesach pp. 151-154", "Mishna Berura 451:23"],
-      "matchPatterns": ["iruy"]
+      "examples": [
+        "Countertop",
+        "Sink",
+        "Table"
+      ],
+      "sources": [
+        "Chazon Ovadia Pesach pp. 151-154",
+        "Mishna Berura 451:23"
+      ],
+      "matchPatterns": [
+        "iruy"
+      ]
     },
     "iruy-kli-rishon": {
       "term": "Iruy from Kli Rishon (עירוי מכלי ראשון)",
       "definition": "Pouring boiling water directly from a vessel that was on a heat source (kli rishon). This method is stronger than pouring from a kli sheni, and sometimes a heated stone is added to reach a higher heat intensity.",
-      "examples": ["Pouring from pot onto countertop", "Pouring from kettle into sink"],
-      "sources": ["Chazon Ovadia Pesach p. 151", "Pesachim 76a"],
-      "matchPatterns": ["iruy from kli rishon"]
+      "examples": [
+        "Pouring from pot onto countertop",
+        "Pouring from kettle into sink"
+      ],
+      "sources": [
+        "Chazon Ovadia Pesach p. 151",
+        "Pesachim 76a"
+      ],
+      "matchPatterns": [
+        "iruy from kli rishon"
+      ]
     },
     "kli-rishon": {
       "term": "Kli Rishon (כלי ראשון)",
       "definition": "A vessel that was directly on a heat source — such as a pot on the stove or an electric kettle. A kli rishon is the vessel in which the food was cooked or the water was boiled, and it has a strong ability both to cook and to kasher.",
-      "examples": ["Boiling pot", "Bubbling kettle"],
-      "sources": ["Pesachim 30b", "Shulchan Aruch 451"],
-      "matchPatterns": ["kli rishon"]
+      "examples": [
+        "Boiling pot",
+        "Bubbling kettle"
+      ],
+      "sources": [
+        "Pesachim 30b",
+        "Shulchan Aruch 451"
+      ],
+      "matchPatterns": [
+        "kli rishon"
+      ]
     },
     "kli-sheni": {
       "term": "Kli Sheni (כלי שני)",
       "definition": "A vessel into which contents were poured from the kli rishon — for example, a bowl into which boiling soup was poured. The cooking and kashering power of a kli sheni is weaker, and it is insufficient for most types of Passover kashering.",
-      "examples": ["Soup bowl", "Plate with transferred food"],
-      "sources": ["Pesachim 76a", "Mishna Berura 451:14"],
-      "matchPatterns": ["kli sheni"]
+      "examples": [
+        "Soup bowl",
+        "Plate with transferred food"
+      ],
+      "sources": [
+        "Pesachim 76a",
+        "Mishna Berura 451:14"
+      ],
+      "matchPatterns": [
+        "kli sheni"
+      ]
     },
     "ben-yomo": {
       "term": "Ben Yomo (בן יומו)",
       "definition": "A utensil in which chametz was cooked within the last 24 hours. Such a utensil has absorbed a strong chametz flavor and may not be used for Passover before kashering. After 24 hours have passed, the absorbed flavor is considered spoiled, and there are certain leniencies in its kashering.",
-      "examples": ["Pot used for pasta yesterday", "Pan used to fry bread"],
-      "sources": ["Shulchan Aruch Yoreh De'ah 121", "Mishna Berura 451:1"],
-      "matchPatterns": ["ben yomo"]
+      "examples": [
+        "Pot used for pasta yesterday",
+        "Pan used to fry bread"
+      ],
+      "sources": [
+        "Shulchan Aruch Yoreh De'ah 121",
+        "Mishna Berura 451:1"
+      ],
+      "matchPatterns": [
+        "ben yomo"
+      ]
     },
     "biur-chametz": {
       "term": "Biur Chametz (ביעור חמץ)",
       "definition": "Destroying the chametz in one's possession — usually by burning, but also by scattering to the wind, throwing into the sea, or crumbling and discarding. This is done on the 14th of Nisan before the deadline for eating chametz. After the destruction, one nullifies any remaining chametz.",
-      "examples": ["Burning chametz on the morning of the 14th", "Scattering chametz to the sea"],
-      "sources": ["Exodus 12:15", "Shulchan Aruch Orach Chaim 434:2-3", "Mishna Berura 434:12"],
-      "matchPatterns": ["biur chametz"]
+      "examples": [
+        "Burning chametz on the morning of the 14th",
+        "Scattering chametz to the sea"
+      ],
+      "sources": [
+        "Exodus 12:15",
+        "Shulchan Aruch Orach Chaim 434:2-3",
+        "Mishna Berura 434:12"
+      ],
+      "matchPatterns": [
+        "biur chametz"
+      ]
     },
     "matza-shmura": {
       "term": "Matza Shmura (מצה שמורה)",
       "definition": "Matza made from flour that has been guarded from the time of wheat harvest to ensure it does not come into contact with water, so it will not ferment. This is the most preferred matza, and some are careful to eat only shmura matza throughout all of Passover. On the Seder night, there is a Torah obligation to eat specifically shmura matza.",
-      "examples": ["Hand-made shmura matzot", "Shmura matza from field to baking"],
-      "sources": ["Shulchan Aruch Orach Chaim 454:4", "Mishna Berura 454:23", "Chazon Ovadia Pesach pp. 75-90"],
-      "matchPatterns": ["matza shmura", "shmura matza"]
+      "examples": [
+        "Hand-made shmura matzot",
+        "Shmura matza from field to baking"
+      ],
+      "sources": [
+        "Shulchan Aruch Orach Chaim 454:4",
+        "Mishna Berura 454:23",
+        "Chazon Ovadia Pesach pp. 75-90"
+      ],
+      "matchPatterns": [
+        "matza shmura",
+        "shmura matza"
+      ]
     },
     "matza-ashira": {
       "term": "Matza Ashira (מצה עשירה)",
       "definition": "Matza kneaded with fruit juice, wine, honey, or eggs — without water. According to most halachic authorities, it is not considered matza for the purpose of fulfilling the mitzvah of eating matza on the Seder night, so one cannot fulfill the obligation with it. Some have the custom not to eat it at all during Passover, out of concern that it may have fermented.",
-      "examples": ["Papushado", "Wine cookies for Passover", "Egg matzot"],
-      "sources": ["Shulchan Aruch Orach Chaim 462:1", "Mishna Berura 462:3-5", "Chazon Ovadia Pesach pp. 78-82"],
-      "matchPatterns": ["matza ashira"]
+      "examples": [
+        "Papushado",
+        "Wine cookies for Passover",
+        "Egg matzot"
+      ],
+      "sources": [
+        "Shulchan Aruch Orach Chaim 462:1",
+        "Mishna Berura 462:3-5",
+        "Chazon Ovadia Pesach pp. 78-82"
+      ],
+      "matchPatterns": [
+        "matza ashira"
+      ]
     },
     "kitniyot": {
       "term": "Kitniyot (קטניות)",
       "definition": "Types of seeds such as rice, corn, lentils, chickpeas, and beans. Although kitniyot are not chametz and do not ferment — Ashkenazi Jews adopted the custom of not eating them on Passover.\nThe custom spread mainly in medieval Europe for several reasons:\n(1) Flours can be made from kitniyot, which might be confused with grain flour.\n(2) Grain and kitniyot fields were sometimes mixed, raising concern of cross-contamination.\n(3) When cooked, kitniyot swell and appear to \"rise\" like leavened dough.\nTherefore, the custom to prohibit eating them was established, even though they are technically permitted by law.\nIn contrast, most Sephardic Jews did not adopt this custom — and permit kitniyot on Passover, as long as there is no concern of chametz contamination.",
-      "examples": ["Rice", "Corn", "Chickpeas", "Lentils", "Soy"],
-      "sources": ["Responsa Maharam of Rothenburg 515", "Rema Orach Chaim 461:1", "Mishna Berura 461:6", "Chazon Ovadia Pesach pp. 197-207"],
-      "matchPatterns": ["kitniyot"]
+      "examples": [
+        "Rice",
+        "Corn",
+        "Chickpeas",
+        "Lentils",
+        "Soy"
+      ],
+      "sources": [
+        "Responsa Maharam of Rothenburg 515",
+        "Rema Orach Chaim 461:1",
+        "Mishna Berura 461:6",
+        "Chazon Ovadia Pesach pp. 197-207"
+      ],
+      "matchPatterns": [
+        "kitniyot"
+      ]
     },
     "even-melubenet": {
       "term": "Even Melubenet (אבן מלובנת)",
       "definition": "A stone (or piece of iron) heated until it is white-hot, used to strengthen the kashering process — mainly when boiling water is poured over it, to ensure the heat is sufficiently high. This is required according to some halachic authorities for countertops or sinks where chametz was absorbed through direct heat.",
-      "examples": ["Heating countertop with hot stone", "Placing hot stone in sink"],
-      "sources": ["Mishna Berura 451:23", "Chazon Ovadia Pesach pp. 154-156"],
-      "matchPatterns": ["even melubenet"]
+      "examples": [
+        "Heating countertop with hot stone",
+        "Placing hot stone in sink"
+      ],
+      "sources": [
+        "Mishna Berura 451:23",
+        "Chazon Ovadia Pesach pp. 154-156"
+      ],
+      "matchPatterns": [
+        "even melubenet"
+      ]
     },
     "kebolao-kach-polto": {
       "term": "Kebol'o Kach Polto (כבולעו כך פולטו)",
       "definition": "A fundamental principle of kashering utensils: the way a utensil absorbed the forbidden flavor is the way it must expel it. For example, if chametz was absorbed through cooking in water — it is kashered by hagala (boiling). If absorbed through fire — it is kashered by libun (burning). Each utensil according to its use.",
-      "examples": ["Pan used dry needs libun", "Pot used for cooking needs hagala"],
-      "sources": ["Pesachim 30b", "Shulchan Aruch 451:5", "Mishna Berura 451:28"],
-      "matchPatterns": ["kebol'o kach polto"]
+      "examples": [
+        "Pan used dry needs libun",
+        "Pot used for cooking needs hagala"
+      ],
+      "sources": [
+        "Pesachim 30b",
+        "Shulchan Aruch 451:5",
+        "Mishna Berura 451:28"
+      ],
+      "matchPatterns": [
+        "kebol'o kach polto"
+      ]
     },
     "taarovet-chametz": {
       "term": "Taarovet Chametz (תערובת חמץ)",
       "definition": "A food or product that contains chametz mixed with other ingredients — even in a very small amount. For example: a sauce or cookie containing flour, oats, or beer. A chametz mixture is forbidden on Passover even if the flavor is barely noticeable, and one may not keep it in one's possession.",
-      "examples": ["Biscuits", "Sauces with wheat starch", "Chocolates with flour"],
-      "sources": ["Pesachim 43a", "Shulchan Aruch Orach Chaim 448:2", "Mishna Berura 448:8", "Chazon Ovadia Pesach pp. 61-69"],
-      "matchPatterns": ["taarovet chametz"]
+      "examples": [
+        "Biscuits",
+        "Sauces with wheat starch",
+        "Chocolates with flour"
+      ],
+      "sources": [
+        "Pesachim 43a",
+        "Shulchan Aruch Orach Chaim 448:2",
+        "Mishna Berura 448:8",
+        "Chazon Ovadia Pesach pp. 61-69"
+      ],
+      "matchPatterns": [
+        "taarovet chametz"
+      ]
     }
   },
   "tools": {
     "east": {
       "countertop": {
         "tool": "Countertop",
-        "aliases": ["kitchen"],
+        "aliases": [
+          "kitchen"
+        ],
         "process": "Clean thoroughly and pour boiling water (directly from the boiling vessel). Alternatively, cover the entire countertop with heavy aluminum foil",
-        "sources": ["Shulchan Aruch 451:20", "Chazon Ovadia Pesach p. 160", "Peninei Halacha 11:1"],
-        "chumrot": ["Pour boiling water and also cover with heavy aluminum foil"],
+        "sources": [
+          "Shulchan Aruch 451:20",
+          "Chazon Ovadia Pesach p. 160",
+          "Peninei Halacha 11:1"
+        ],
+        "chumrot": [
+          "Pour boiling water and also cover with heavy aluminum foil"
+        ],
         "notes": "A delicate countertop on which hot items were never placed — cleaning and pouring only"
       },
       "sink": {
         "tool": "Sink",
-        "aliases": ["kitchen", "ceramic"],
+        "aliases": [
+          "kitchen",
+          "ceramic"
+        ],
         "process": "Clean thoroughly and pour boiling water (directly from the boiling vessel)",
-        "sources": ["Chazon Ovadia Pesach p. 151", "Yalkut Yosef Pesach 451:37", "Peninei Halacha 11:2"],
-        "chumrot": ["It is proper to pour boiling water three times", "In addition to pouring, place a plastic basin inside the sink or cover with heavy aluminum foil"],
+        "sources": [
+          "Chazon Ovadia Pesach p. 151",
+          "Yalkut Yosef Pesach 451:37",
+          "Peninei Halacha 11:2"
+        ],
+        "chumrot": [
+          "It is proper to pour boiling water three times",
+          "In addition to pouring, place a plastic basin inside the sink or cover with heavy aluminum foil"
+        ],
         "notes": "Dry the sink first so the boiling water touches the sink directly"
       },
       "stovetop": {
         "tool": "Stovetop",
-        "aliases": ["kitchen", "grate", "gas"],
+        "aliases": [
+          "kitchen",
+          "grate",
+          "gas"
+        ],
         "process": "Clean thoroughly and kasher by immersing in boiling water in a kli rishon, or alternatively cover with heavy aluminum foil",
-        "sources": ["Chazon Ovadia Pesach p. 137", "Yalkut Yosef Pesach 451:21", "Peninei Halacha 11:3"],
-        "chumrot": ["The custom is to turn on all burners for about half an hour"],
+        "sources": [
+          "Chazon Ovadia Pesach p. 137",
+          "Yalkut Yosef Pesach 451:21",
+          "Peninei Halacha 11:3"
+        ],
+        "chumrot": [
+          "The custom is to turn on all burners for about half an hour"
+        ],
         "notes": "You can also kasher the stovetop by pouring boiling water from a kli rishon over it. Other metal parts that don't touch pots (enamel surface, gas heads, burners) just need thorough cleaning"
       },
       "electric-stovetop": {
         "tool": "Electric Stovetop",
-        "aliases": ["kitchen", "grate"],
+        "aliases": [
+          "kitchen",
+          "grate"
+        ],
         "process": "Clean thoroughly and heat on the highest setting for half an hour",
-        "sources": ["Peninei Halacha 11:3"],
+        "sources": [
+          "Peninei Halacha 11:3"
+        ],
         "chumrot": []
       },
       "oven": {
         "tool": "Oven",
-        "aliases": ["kitchen", "baking"],
+        "aliases": [
+          "kitchen",
+          "baking"
+        ],
         "process": "Clean thoroughly and run on the highest heat for half an hour to an hour",
-        "sources": ["Chazon Ovadia Pesach p. 132", "Peninei Halacha 11:4"],
-        "chumrot": ["It is preferable to not use the oven for 24 hours before kashering", "Some are strict not to kasher a baking oven for Pesach"],
+        "sources": [
+          "Chazon Ovadia Pesach p. 132",
+          "Peninei Halacha 11:4"
+        ],
+        "chumrot": [
+          "It is preferable to not use the oven for 24 hours before kashering",
+          "Some are strict not to kasher a baking oven for Pesach"
+        ],
         "notes": "When kashering the oven, you can leave the rack in, then place aluminum foil on the rack and use disposable trays on top of it. A self-cleaning oven (~500°C) does not need cleaning as it is considered libun chamur."
       },
       "baking-trays": {
         "tool": "Baking Trays",
-        "aliases": ["kitchen", "baking"],
+        "aliases": [
+          "kitchen",
+          "baking"
+        ],
         "process": "Cannot be used on Pesach as they require libun chamur which would damage them. Those who are lenient to kasher them by hagala have what to rely on",
-        "sources": ["Chazon Ovadia Pesach pp. 132, 134", "Shulchan Gavoah OC 451:11 s.k. 31", "Yalkut Yosef Pesach 451:5", "Peninei Halacha 11:4"],
+        "sources": [
+          "Chazon Ovadia Pesach pp. 132, 134",
+          "Shulchan Gavoah OC 451:11 s.k. 31",
+          "Yalkut Yosef Pesach 451:5",
+          "Peninei Halacha 11:4"
+        ],
         "chumrot": [],
         "notes": "When kashering the oven, you can leave the rack, then place aluminum foil on the rack and use disposable trays on top"
       },
       "hot-plate": {
         "tool": "Hot Plate",
-        "aliases": ["plata", "kitchen"],
+        "aliases": [
+          "plata",
+          "kitchen"
+        ],
         "process": "Clean thoroughly and pour boiling water from a kli rishon, or alternatively wrap in aluminum foil",
-        "sources": ["Chazon Ovadia Pesach p. 138", "Peninei Halacha 11:5"],
-        "chumrot": ["After cleaning, heat for an hour then wrap in aluminum foil"]
+        "sources": [
+          "Chazon Ovadia Pesach p. 138",
+          "Peninei Halacha 11:5"
+        ],
+        "chumrot": [
+          "After cleaning, heat for an hour then wrap in aluminum foil"
+        ]
       },
       "microwave": {
         "tool": "Microwave",
-        "aliases": ["kitchen"],
+        "aliases": [
+          "kitchen"
+        ],
         "process": "Clean thoroughly of food residue, wait 24 hours without use, then place a bowl of water and heat the microwave for three minutes",
-        "sources": ["Yalkut Yosef Pesach 451:10", "Peninei Halacha 11:6"],
-        "chumrot": ["Rabbi Mordechai Eliyahu ruled that in addition, one must cover all foods being heated"],
+        "sources": [
+          "Yalkut Yosef Pesach 451:10",
+          "Peninei Halacha 11:6"
+        ],
+        "chumrot": [
+          "Rabbi Mordechai Eliyahu ruled that in addition, one must cover all foods being heated"
+        ],
         "notes": "When heating food on Pesach, place something to separate between the rotating plate and the food being heated"
       },
       "dishwasher": {
         "tool": "Dishwasher",
-        "aliases": ["kitchen"],
+        "aliases": [
+          "kitchen"
+        ],
         "process": "Clean thoroughly of food residue (especially the filter), and run the longest program on the highest heat with detergent",
-        "sources": ["Yalkut Yosef Pesach 451:11", "Peninei Halacha 11:7"],
-        "chumrot": ["Ideally, kasher the dishwasher racks by immersing in boiling water or pouring boiling water over them, or replace them"],
+        "sources": [
+          "Yalkut Yosef Pesach 451:11",
+          "Peninei Halacha 11:7"
+        ],
+        "chumrot": [
+          "Ideally, kasher the dishwasher racks by immersing in boiling water or pouring boiling water over them, or replace them"
+        ],
         "notes": "You can leave the racks inside the dishwasher and they will be kashered as well"
       },
       "knife": {
         "tool": "Knife",
-        "aliases": ["cutlery", "kitchen"],
+        "aliases": [
+          "cutlery",
+          "kitchen"
+        ],
         "process": "Kasher by immersing in boiling water in a kli rishon",
-        "sources": ["Chazon Ovadia Pesach p. 137", "Peninei Halacha 11:10"],
-        "chumrot": ["Use special cutlery for Pesach"]
+        "sources": [
+          "Chazon Ovadia Pesach p. 137",
+          "Peninei Halacha 11:10"
+        ],
+        "chumrot": [
+          "Use special cutlery for Pesach"
+        ]
       },
       "fork": {
         "tool": "Fork",
-        "aliases": ["cutlery", "kitchen"],
+        "aliases": [
+          "cutlery",
+          "kitchen"
+        ],
         "process": "Kasher by immersing in boiling water in a kli rishon",
-        "sources": ["Peninei Halacha 11:10"],
-        "chumrot": ["Use special cutlery for Pesach"]
+        "sources": [
+          "Peninei Halacha 11:10"
+        ],
+        "chumrot": [
+          "Use special cutlery for Pesach"
+        ]
       },
       "spoon": {
         "tool": "Spoon",
-        "aliases": ["cutlery", "kitchen"],
+        "aliases": [
+          "cutlery",
+          "kitchen"
+        ],
         "process": "Kasher by immersing in boiling water in a kli rishon",
-        "sources": ["Peninei Halacha 11:10"],
-        "chumrot": ["Use special cutlery for Pesach"]
+        "sources": [
+          "Peninei Halacha 11:10"
+        ],
+        "chumrot": [
+          "Use special cutlery for Pesach"
+        ]
       },
       "table": {
         "tool": "Table",
-        "aliases": ["dining table", "kitchen"],
+        "aliases": [
+          "dining table",
+          "kitchen"
+        ],
         "process": "Clean thoroughly and spread a new, clean tablecloth",
-        "sources": ["Chazon Ovadia Pesach p. 159", "Peninei Halacha 11:8"],
-        "chumrot": ["Some are strict to pour boiling water on the tables if they are sturdy and won't be damaged"],
+        "sources": [
+          "Chazon Ovadia Pesach p. 159",
+          "Peninei Halacha 11:8"
+        ],
+        "chumrot": [
+          "Some are strict to pour boiling water on the tables if they are sturdy and won't be damaged"
+        ],
         "notes": "A table on which hot chametz food was never placed, or was always covered with a tablecloth or glass, only needs thorough cleaning. On Pesach, it's good to avoid placing hot pots directly on the table"
       },
       "tablecloth": {
         "tool": "Tablecloth",
-        "aliases": ["table cover", "oilcloth", "kitchen"],
+        "aliases": [
+          "table cover",
+          "oilcloth",
+          "kitchen"
+        ],
         "process": "Wash in a washing machine, and that kashers them for Pesach",
-        "sources": ["Chazon Ovadia p. 160", "Peninei Halacha 11:8"],
-        "chumrot": ["Some are strict to use a new tablecloth for Pesach"]
+        "sources": [
+          "Chazon Ovadia p. 160",
+          "Peninei Halacha 11:8"
+        ],
+        "chumrot": [
+          "Some are strict to use a new tablecloth for Pesach"
+        ]
       },
       "refrigerator": {
         "tool": "Refrigerator",
-        "aliases": ["kitchen"],
+        "aliases": [
+          "kitchen"
+        ],
         "process": "Clean thoroughly and ensure there are no food residues at all",
-        "sources": ["Peninei Halacha 11:9"],
+        "sources": [
+          "Peninei Halacha 11:9"
+        ],
         "chumrot": [],
         "notes": "In places that are hard or impossible to clean, you can pour soapy water or a substance that spoils food, and that is sufficient"
       },
       "kitchen-cabinets": {
         "tool": "Kitchen Cabinets",
-        "aliases": ["cabinet", "kitchen"],
+        "aliases": [
+          "cabinet",
+          "kitchen"
+        ],
         "process": "Clean thoroughly and ensure there are no food residues at all",
-        "sources": ["Peninei Halacha 11:9"],
+        "sources": [
+          "Peninei Halacha 11:9"
+        ],
         "chumrot": [],
         "notes": "In places that are hard or impossible to clean, you can pour soapy water or a substance that spoils food, and that is sufficient"
       },
       "ceramic": {
         "tool": "Ceramic",
-        "aliases": ["ceramics", "clay", "porcelain", "earthenware", "pottery", "kitchen"],
+        "aliases": [
+          "ceramics",
+          "clay",
+          "porcelain",
+          "earthenware",
+          "pottery",
+          "kitchen"
+        ],
         "process": "If they came in contact with hot food, they cannot be kashered at all and must be stored away until after Pesach",
-        "sources": ["Chazon Ovadia Pesach p. 149", "Peninei Halacha 11:13"],
+        "sources": [
+          "Chazon Ovadia Pesach p. 149",
+          "Peninei Halacha 11:13"
+        ],
         "chumrot": [],
         "notes": "If used only with cold food, they can be kashered by rinsing. But if chametz liquid (e.g., beer) was in them for 24 hours, they can be kashered by soaking for three days (see glossary)"
       },
       "glass": {
         "tool": "Glass",
-        "aliases": ["plate", "cup", "pyrex", "duralex", "induction", "kitchen"],
+        "aliases": [
+          "plate",
+          "cup",
+          "pyrex",
+          "duralex",
+          "induction",
+          "kitchen"
+        ],
         "process": "Rinse thoroughly and it can be used on Pesach — even if it touched boiling chametz, no hagala is needed",
-        "sources": ["Chazon Ovadia Pesach p. 152", "Peninei Halacha 11:14"],
-        "chumrot": ["Some are strict with glass and don't use it on Pesach, treating it like metal utensils (Ben Ish Chai Year 1, Tzav 14)"]
+        "sources": [
+          "Chazon Ovadia Pesach p. 152",
+          "Peninei Halacha 11:14"
+        ],
+        "chumrot": [
+          "Some are strict with glass and don't use it on Pesach, treating it like metal utensils (Ben Ish Chai Year 1, Tzav 14)"
+        ]
       },
       "plastic": {
         "tool": "Rubber / Plastic / Silicone / Nylon",
-        "aliases": ["bottle", "plate", "cup", "kitchen"],
+        "aliases": [
+          "bottle",
+          "plate",
+          "cup",
+          "kitchen"
+        ],
         "process": "If they came in contact with hot chametz food, kasher them by immersing in boiling water in a kli rishon",
-        "sources": ["Chazon Ovadia Pesach p. 151", "Peninei Halacha 11:16"],
+        "sources": [
+          "Chazon Ovadia Pesach p. 151",
+          "Peninei Halacha 11:16"
+        ],
         "chumrot": []
       },
       "enamel": {
         "tool": "Enamel",
-        "aliases": ["pot", "kitchen"],
+        "aliases": [
+          "pot",
+          "kitchen"
+        ],
         "process": "Can be kashered by immersing in boiling water in a kli rishon",
-        "sources": ["Chazon Ovadia Pesach p. 157", "Peninei Halacha 11:15"],
-        "chumrot": ["Some recommend kashering three times (Rabbi Ovadia Yosef, Rabbi Mordechai Eliyahu)"]
+        "sources": [
+          "Chazon Ovadia Pesach p. 157",
+          "Peninei Halacha 11:15"
+        ],
+        "chumrot": [
+          "Some recommend kashering three times (Rabbi Ovadia Yosef, Rabbi Mordechai Eliyahu)"
+        ]
       },
       "pots": {
         "tool": "Pots",
-        "aliases": ["lid", "pressure cooker", "kitchen"],
+        "aliases": [
+          "lid",
+          "pressure cooker",
+          "kitchen"
+        ],
         "process": "Clean thoroughly and kasher by immersing in boiling water in a kli rishon, including handles and lids",
-        "sources": ["Shulchan Aruch 451:12/14", "Chazon Ovadia Pesach p. 134", "Peninei Halacha 11:10"],
+        "sources": [
+          "Shulchan Aruch 451:12/14",
+          "Chazon Ovadia Pesach p. 134",
+          "Peninei Halacha 11:10"
+        ],
         "chumrot": [],
         "notes": "Pay attention to rinse around the handles so no residue remains, and clean rust as much as possible"
       },
       "mortar": {
         "tool": "Mortar",
-        "aliases": ["pestle", "kitchen"],
+        "aliases": [
+          "pestle",
+          "kitchen"
+        ],
         "process": "Clean thoroughly and kasher by immersing in boiling water in a kli rishon",
-        "sources": ["Shulchan Aruch 451:16", "Chazon Ovadia Pesach p. 136"],
+        "sources": [
+          "Shulchan Aruch 451:16",
+          "Chazon Ovadia Pesach p. 136"
+        ],
         "chumrot": [],
         "notes": "If used only with cold food and not with sharp items, no hagala is needed — just thorough cleaning"
       },
       "pan": {
         "tool": "Pan",
-        "aliases": ["frying pan", "kitchen"],
+        "aliases": [
+          "frying pan",
+          "kitchen"
+        ],
         "process": "Clean thoroughly and kasher by immersing in boiling water in a kli rishon",
-        "sources": ["Shulchan Aruch 451:11", "Chazon Ovadia Pesach p. 138", "Peninei Halacha 11:10"],
+        "sources": [
+          "Shulchan Aruch 451:11",
+          "Chazon Ovadia Pesach p. 138",
+          "Peninei Halacha 11:10"
+        ],
         "chumrot": [],
         "notes": "Note that if it's a Teflon pan, see the entry for \"Teflon Pan\""
       },
       "teflon-pan": {
         "tool": "Teflon Pan",
-        "aliases": ["frying pan", "kitchen"],
+        "aliases": [
+          "frying pan",
+          "kitchen"
+        ],
         "process": "If it was used most of the year with oil, it can be kashered by immersing in boiling water in a kli rishon",
-        "sources": ["Peninei Halacha 11:10"],
-        "chumrot": ["Teflon pans are not kashered because they are commonly used without oil and would then require libun chamur"]
+        "sources": [
+          "Peninei Halacha 11:10"
+        ],
+        "chumrot": [
+          "Teflon pans are not kashered because they are commonly used without oil and would then require libun chamur"
+        ]
       },
       "toaster": {
         "tool": "Toaster",
-        "aliases": ["kitchen"],
+        "aliases": [
+          "kitchen"
+        ],
         "process": "Requires libun chamur, and since it may get damaged — it cannot be kashered",
-        "sources": ["Peninei Halacha 11:12"],
+        "sources": [
+          "Peninei Halacha 11:12"
+        ],
         "chumrot": []
       },
       "dentures": {
         "tool": "Dentures",
         "aliases": [],
         "process": "Clean thoroughly and it is kashered for Pesach — no hagala needed",
-        "sources": ["Chazon Ovadia Pesach p. 145", "Peninei Halacha 11:12"],
-        "chumrot": ["It is good to pour boiling water from a kli rishon over them"]
+        "sources": [
+          "Chazon Ovadia Pesach p. 145",
+          "Peninei Halacha 11:12"
+        ],
+        "chumrot": [
+          "It is good to pour boiling water from a kli rishon over them"
+        ]
       },
       "skewers": {
         "tool": "Skewers",
-        "aliases": ["grill skewers"],
+        "aliases": [
+          "grill skewers"
+        ],
         "process": "Require libun by fire until sparks fly off them",
-        "sources": ["Chazon Ovadia Pesach p. 126"],
+        "sources": [
+          "Chazon Ovadia Pesach p. 126"
+        ],
         "chumrot": [],
         "notes": "If it is unknown whether chametz was mixed in them, they can be kashered by hagala in a kli rishon"
       },
       "wood": {
         "tool": "Wood",
-        "aliases": ["kitchen"],
+        "aliases": [
+          "kitchen"
+        ],
         "process": "Thorough cleaning and hagala by immersing in boiling water in a kli rishon",
-        "sources": ["Shulchan Aruch 451:8", "Chazon Ovadia Pesach p. 151"],
+        "sources": [
+          "Shulchan Aruch 451:8",
+          "Chazon Ovadia Pesach p. 151"
+        ],
         "chumrot": [],
         "notes": "If used in a different way, e.g. in a kli sheni etc., kasher according to its use"
       },
       "stone": {
         "tool": "Stone",
-        "aliases": ["kitchen"],
+        "aliases": [
+          "kitchen"
+        ],
         "process": "Thorough cleaning and hagala by immersing in boiling water in a kli rishon",
-        "sources": ["Shulchan Aruch 451:8", "Chazon Ovadia Pesach p. 151"],
+        "sources": [
+          "Shulchan Aruch 451:8",
+          "Chazon Ovadia Pesach p. 151"
+        ],
         "chumrot": [],
         "notes": "If used in a different way, e.g. in a kli sheni etc., kasher according to its use"
       },
       "metal": {
         "tool": "Metal",
-        "aliases": ["kitchen", "silver", "gold", "iron", "aluminum", "stainless steel", "steel", "titanium", "copper"],
+        "aliases": [
+          "kitchen",
+          "silver",
+          "gold",
+          "iron",
+          "aluminum",
+          "stainless steel",
+          "steel",
+          "titanium",
+          "copper"
+        ],
         "process": "Thorough cleaning and hagala by immersing in boiling water in a kli rishon",
-        "sources": ["Shulchan Aruch 451:8", "Chazon Ovadia Pesach p. 147"],
+        "sources": [
+          "Shulchan Aruch 451:8",
+          "Chazon Ovadia Pesach p. 147"
+        ],
         "chumrot": [],
         "notes": "If used in a different way, e.g. in a kli sheni etc., kasher according to its use"
       },
       "bone": {
         "tool": "Bone",
-        "aliases": ["kitchen"],
+        "aliases": [
+          "kitchen"
+        ],
         "process": "Thorough cleaning and hagala by immersing in boiling water in a kli rishon",
-        "sources": ["Shulchan Aruch 451:8", "Chazon Ovadia Pesach p. 151"],
+        "sources": [
+          "Shulchan Aruch 451:8",
+          "Chazon Ovadia Pesach p. 151"
+        ],
         "chumrot": [],
         "notes": "If used in a different way, e.g. in a kli sheni etc., kasher according to its use"
       },
       "meat-grinder": {
         "tool": "Meat Grinder",
-        "aliases": ["kitchen", "meat machine"],
+        "aliases": [
+          "kitchen",
+          "meat machine"
+        ],
         "process": "After disassembling and thorough cleaning, in holes and cracks, kasher by immersing in boiling water in a kli rishon",
-        "sources": ["Chazon Ovadia Pesach p. 160"],
+        "sources": [
+          "Chazon Ovadia Pesach p. 160"
+        ],
         "chumrot": [],
         "notes": "It is proper to burn the parts with holes and cracks by fire to burn every crumb"
       },
       "thermos": {
         "tool": "Thermos",
-        "aliases": ["kitchen"],
+        "aliases": [
+          "kitchen"
+        ],
         "process": "Thorough cleaning and pouring boiling water from a kli rishon. If used only for water, cleaning alone is sufficient",
         "sources": [],
         "chumrot": []
@@ -378,13 +770,19 @@
         "aliases": [],
         "process": "Clean thoroughly and that's it",
         "sources": [],
-        "chumrot": ["A new toothbrush for Pesach"]
+        "chumrot": [
+          "A new toothbrush for Pesach"
+        ]
       },
       "water-urn": {
         "tool": "Water Urn",
-        "aliases": ["kitchen"],
+        "aliases": [
+          "kitchen"
+        ],
         "process": "Clean thoroughly and that's it. But if chametz was heated on it (bourekas/bread), then kasher the lid",
-        "sources": ["Yalkut Yosef Pesach 451:3"],
+        "sources": [
+          "Yalkut Yosef Pesach 451:3"
+        ],
         "chumrot": [],
         "notes": "If chametz touched the body of the urn while it was boiling, do not use the urn as it cannot be kashered"
       },
@@ -392,45 +790,95 @@
         "tool": "Books",
         "aliases": [],
         "process": "Do not require checking",
-        "sources": ["Responsa Yabi'a Omer vol. 7, OC 43", "Chazon Ovadia Pesach p. 35"],
+        "sources": [
+          "Responsa Yabi'a Omer vol. 7, OC 43",
+          "Chazon Ovadia Pesach p. 35"
+        ],
         "chumrot": [],
         "notes": "Similarly, small benchers and grace after meals booklets — if clean from residue, they can be used on Pesach"
+      },
+      "perfume": {
+        "tool": "Perfume",
+        "aliases": [
+          "cosmetics",
+          "toiletries"
+        ],
+        "process": "No kashering required",
+        "sources": [
+          "Yalkut Yosef Siman 447 Se'if 2",
+          "Chazon Ovadia Pesach page 114"
+        ],
+        "chumrot": [
+          "Some require kosher for Passover perfume"
+        ],
+        "notes": "Since it became unfit for dog consumption before Passover."
       }
     },
     "ashkenaz": {
       "pan": {
         "tool": "Pan",
-        "aliases": ["frying", "skillet"],
+        "aliases": [
+          "frying",
+          "skillet"
+        ],
         "process": "Libun kal (until straw would burn on the other side)",
-        "sources": ["Mishna Berura 451:28"],
-        "chumrot": ["Some practice libun chamur"]
+        "sources": [
+          "Mishna Berura 451:28"
+        ],
+        "chumrot": [
+          "Some practice libun chamur"
+        ]
       },
       "glass-cup": {
         "tool": "Glass Cup",
-        "aliases": ["cups", "goblet"],
+        "aliases": [
+          "cups",
+          "goblet"
+        ],
         "process": "Hagala three times in boiling water",
-        "sources": ["Rema Orach Chaim 451:26"],
+        "sources": [
+          "Rema Orach Chaim 451:26"
+        ],
         "chumrot": []
       },
       "knife": {
         "tool": "Knife",
-        "aliases": ["cutlery", "fork", "spoon"],
+        "aliases": [
+          "cutlery",
+          "fork",
+          "spoon"
+        ],
         "process": "Hagala in boiling water three times, including the handle",
-        "sources": ["Shulchan Aruch Orach Chaim 451:3"],
-        "chumrot": ["Some have the custom to buy special cutlery for Pesach"]
+        "sources": [
+          "Shulchan Aruch Orach Chaim 451:3"
+        ],
+        "chumrot": [
+          "Some have the custom to buy special cutlery for Pesach"
+        ]
       },
       "countertop": {
         "tool": "Countertop",
-        "aliases": ["work surface", "kitchen surface"],
+        "aliases": [
+          "work surface",
+          "kitchen surface"
+        ],
         "process": "Thorough cleaning, pouring boiling water, covering with aluminum foil or another surface",
-        "sources": ["Mishna Berura 451:115"],
+        "sources": [
+          "Mishna Berura 451:115"
+        ],
         "chumrot": []
       },
       "ceramic": {
         "tool": "Ceramic",
-        "aliases": ["earthenware", "ceramics", "porcelain"],
+        "aliases": [
+          "earthenware",
+          "ceramics",
+          "porcelain"
+        ],
         "process": "Cannot be kashered",
-        "sources": ["Shulchan Aruch Orach Chaim 451:1"],
+        "sources": [
+          "Shulchan Aruch Orach Chaim 451:1"
+        ],
         "chumrot": [],
         "notes": "Must buy new utensils or use utensils designated for Pesach"
       }
@@ -438,30 +886,57 @@
     "chabad": {
       "oven": {
         "tool": "Oven",
-        "aliases": ["baking oven", "baking"],
+        "aliases": [
+          "baking oven",
+          "baking"
+        ],
         "process": "Thorough cleaning, wait 24 hours, run at maximum heat for one hour",
-        "sources": ["Igrot Moshe Orach Chaim 1:124"],
-        "chumrot": ["Many have the custom not to use the oven for Pesach but to cover it with aluminum foil"]
+        "sources": [
+          "Igrot Moshe Orach Chaim 1:124"
+        ],
+        "chumrot": [
+          "Many have the custom not to use the oven for Pesach but to cover it with aluminum foil"
+        ]
       },
       "microwave": {
         "tool": "Microwave",
-        "aliases": ["micro"],
+        "aliases": [
+          "micro"
+        ],
         "process": "Thorough cleaning, boiling a cup of water with soap for 10 minutes",
-        "sources": ["Halichot Shlomo Pesach ch. 3"],
-        "chumrot": ["Some have the custom to use only with a double cover"]
+        "sources": [
+          "Halichot Shlomo Pesach ch. 3"
+        ],
+        "chumrot": [
+          "Some have the custom to use only with a double cover"
+        ]
       },
       "knife": {
         "tool": "Knife",
-        "aliases": ["cutlery", "fork", "spoon"],
+        "aliases": [
+          "cutlery",
+          "fork",
+          "spoon"
+        ],
         "process": "Hagala in boiling water three times, including the handle",
-        "sources": ["Shulchan Aruch Orach Chaim 451:3"],
-        "chumrot": ["Some have the custom to buy special cutlery for Pesach"]
+        "sources": [
+          "Shulchan Aruch Orach Chaim 451:3"
+        ],
+        "chumrot": [
+          "Some have the custom to buy special cutlery for Pesach"
+        ]
       },
       "ceramic": {
         "tool": "Ceramic",
-        "aliases": ["earthenware", "ceramics", "porcelain"],
+        "aliases": [
+          "earthenware",
+          "ceramics",
+          "porcelain"
+        ],
         "process": "Cannot be kashered",
-        "sources": ["Shulchan Aruch Orach Chaim 451:1"],
+        "sources": [
+          "Shulchan Aruch Orach Chaim 451:1"
+        ],
         "chumrot": [],
         "notes": "Must buy new utensils or use utensils designated for Pesach"
       }
@@ -469,91 +944,158 @@
     "teiman": {
       "countertop": {
         "tool": "Countertop",
-        "aliases": ["kitchen"],
+        "aliases": [
+          "kitchen"
+        ],
         "process": "Thorough cleaning. The custom is to pour boiling water from a kli rishon on areas where hot items are placed.",
-        "sources": ["Mishneh Torah Chametz u'Matza 5:23", "Etz Chaim Maharitz vol. 2 p. 72"],
-        "chumrot": ["Pouring with a heated stone"]
+        "sources": [
+          "Mishneh Torah Chametz u'Matza 5:23",
+          "Etz Chaim Maharitz vol. 2 p. 72"
+        ],
+        "chumrot": [
+          "Pouring with a heated stone"
+        ]
       },
       "sink": {
         "tool": "Sink",
-        "aliases": ["kitchen", "ceramic"],
+        "aliases": [
+          "kitchen",
+          "ceramic"
+        ],
         "process": "Thorough cleaning. Pour boiling water from a kli rishon.",
-        "sources": ["Mishneh Torah Chametz u'Matza 5:23"],
+        "sources": [
+          "Mishneh Torah Chametz u'Matza 5:23"
+        ],
         "chumrot": [],
         "notes": "If hot chametz was cooked or poured into it — be especially careful with the pouring."
       },
       "stovetop": {
         "tool": "Stovetop",
-        "aliases": ["kitchen", "grate", "gas"],
+        "aliases": [
+          "kitchen",
+          "grate",
+          "gas"
+        ],
         "process": "Thorough cleaning and lighting the burners to kasher the grates.",
-        "sources": ["Mishneh Torah Ma'achalot Asurot 17:5"],
+        "sources": [
+          "Mishneh Torah Ma'achalot Asurot 17:5"
+        ],
         "chumrot": [],
         "notes": "Other parts — thorough cleaning only."
       },
       "electric-stovetop": {
         "tool": "Electric Stovetop",
-        "aliases": ["kitchen", "grate"],
+        "aliases": [
+          "kitchen",
+          "grate"
+        ],
         "process": "Thorough cleaning and running on highest heat for about half an hour.",
-        "sources": ["Mishneh Torah Ma'achalot Asurot 17:5"],
+        "sources": [
+          "Mishneh Torah Ma'achalot Asurot 17:5"
+        ],
         "chumrot": []
       },
       "oven": {
         "tool": "Oven",
-        "aliases": ["kitchen", "baking"],
+        "aliases": [
+          "kitchen",
+          "baking"
+        ],
         "process": "Thorough cleaning and running on highest heat for at least half an hour.",
-        "sources": ["Mishneh Torah Chametz u'Matza 5:23"],
+        "sources": [
+          "Mishneh Torah Chametz u'Matza 5:23"
+        ],
         "chumrot": []
       },
       "baking-trays": {
         "tool": "Baking Trays",
-        "aliases": ["kitchen", "baking"],
+        "aliases": [
+          "kitchen",
+          "baking"
+        ],
         "process": "Cannot be used. Use disposable trays.",
-        "sources": ["Mishneh Torah Chametz u'Matza 5:23"],
+        "sources": [
+          "Mishneh Torah Chametz u'Matza 5:23"
+        ],
         "chumrot": [],
         "notes": "You can kasher the rack and place aluminum foil and a disposable tray on it."
       },
       "glass-cup": {
         "tool": "Glass Cups",
-        "aliases": ["glass", "drinking"],
+        "aliases": [
+          "glass",
+          "drinking"
+        ],
         "process": "Thorough cleaning. No additional kashering needed.",
-        "sources": ["Mishneh Torah Ma'achalot Asurot 17:26", "Rulings of Maharitz"],
+        "sources": [
+          "Mishneh Torah Ma'achalot Asurot 17:26",
+          "Rulings of Maharitz"
+        ],
         "chumrot": []
       },
       "pots": {
         "tool": "Pots",
-        "aliases": ["cooking", "kitchen"],
+        "aliases": [
+          "cooking",
+          "kitchen"
+        ],
         "process": "Hagala in a kli rishon after thorough cleaning.",
-        "sources": ["Mishneh Torah Chametz u'Matza 5:23"],
+        "sources": [
+          "Mishneh Torah Chametz u'Matza 5:23"
+        ],
         "chumrot": [],
         "notes": "If used on fire without liquid — libun is required."
       },
       "pan": {
         "tool": "Pan",
-        "aliases": ["cooking", "kitchen"],
+        "aliases": [
+          "cooking",
+          "kitchen"
+        ],
         "process": "Libun kal, since they are usually used with little oil.",
-        "sources": ["Mishneh Torah Chametz u'Matza 5:23"],
+        "sources": [
+          "Mishneh Torah Chametz u'Matza 5:23"
+        ],
         "chumrot": [],
         "notes": "If used on direct fire without oil — libun chamur."
       },
       "cutlery": {
         "tool": "Cutlery",
-        "aliases": ["kitchen", "spoon", "fork", "knife"],
+        "aliases": [
+          "kitchen",
+          "spoon",
+          "fork",
+          "knife"
+        ],
         "process": "Hagala in a kli rishon after thorough cleaning.",
-        "sources": ["Mishneh Torah Chametz u'Matza 5:23"],
+        "sources": [
+          "Mishneh Torah Chametz u'Matza 5:23"
+        ],
         "chumrot": []
       },
       "dishwasher": {
         "tool": "Dishwasher",
-        "aliases": ["kitchen", "washing"],
+        "aliases": [
+          "kitchen",
+          "washing"
+        ],
         "process": "Thorough cleaning, run the dishwasher with detergent on high heat without dishes.",
-        "sources": ["Rulings of Rabbi Kapach"],
+        "sources": [
+          "Rulings of Rabbi Kapach"
+        ],
         "chumrot": []
       },
       "ceramic": {
         "tool": "Ceramic",
-        "aliases": ["clay", "ceramics", "porcelain"],
+        "aliases": [
+          "clay",
+          "ceramics",
+          "porcelain"
+        ],
         "process": "Cannot be kashered. Cannot be used on Pesach if they were used with hot chametz.",
-        "sources": ["Mishneh Torah Ma'achalot Asurot 5:20"],
+        "sources": [
+          "Mishneh Torah Ma'achalot Asurot 5:20"
+        ],
         "chumrot": [],
         "notes": "Ideally, use utensils designated for Pesach."
       }
